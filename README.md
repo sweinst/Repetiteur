@@ -1,7 +1,21 @@
-[//]: <h1 align="center" style="display: block; font-size: 2.5em; font-weight: bold; margin-block-start: 1em; margin-block-end: 1em;">
-<h1 align="center" >
-	<img src="doc/logo.png" alt="Répétiteur logo"/>
-	<strong>Répétiteur</strong>
-</h1>
-# Répétiteur
+<!-- 
+the GitHub parser is stri pping a lot of style attributes. So I've been unable to hide the table border
+Or to align image and text without a table
+-->
+
+<table id="logo" align="center" style="border-style: none;border-collapse: collapse;">
+	<tr style="border-style: none;">
+		<th style="border-style: none;">
+			<img 
+				src="docs/imgs/logo.png" 
+				alt="Répétiteur logo"
+				width="300em"
+				/>
+		</th>
+		<th style="border-style: none;">
+			<h1>Répétiteur</h1>
+		</th>
+	</tr>
+</table>
+
 A flashcard web application
