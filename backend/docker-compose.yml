@@ -19,7 +19,7 @@ services:
   redis:
     image: redis:latest
 
-  app:
+  repetiteur:
     build: .
     environment:
       - DATABASE_URL=postgres://postgres:postgres@postgres/repetiteur
