@@ -4,6 +4,9 @@ WORKDIR /app/
 
 COPY . .
 
+# install psql
+RUN apt update
+RUN apt install postgresql-client -y
 # install the diesel cli
 RUN cargo install diesel_cli --no-default-features --features postgres
 # install cargo-watch
