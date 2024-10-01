@@ -25,9 +25,13 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E01', 'Saying how you are feeling'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E02', 'Greetings'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E03', 'Saying where you are from'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E04', 'More on nationalities'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E05', 'Talking about the family'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E03', 'Reflexive verbs')
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E03', 'Reflexive verbs'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E04', 'Making arrangements'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E05', 'Making more arrangements')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -75,6 +79,30 @@ Soy de Francia'),
 ((SELECT id FROM Lessons WHERE name = 'S01E03'), 'I live in London', 'Vivo en Londres'),
 ((SELECT id FROM Lessons WHERE name = 'S01E03'), 'My name is Carlo and I''m from Spain too', 'Me llamo Carlos y soy de España también'),
 ((SELECT id FROM Lessons WHERE name = 'S01E03'), 'Australia', 'Australia')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E04'), 'Are you from Scotland? Yes, I''m from Scotland.', '¿Eres de Escocia?
+Sí, soy de Escocia'),
+((SELECT id FROM Lessons WHERE name = 'S01E04'), 'Are you from England? No, I''m not from England', '¿Eres de Inglaterra? 
+No, no soy de Inglaterra.'),
+((SELECT id FROM Lessons WHERE name = 'S01E04'), 'I live in Glasgow', 'Vivo en Glasgow.'),
+((SELECT id FROM Lessons WHERE name = 'S01E04'), 'Where do you live (unformal)?', '¿Dónde vives?'),
+((SELECT id FROM Lessons WHERE name = 'S01E04'), 'Where do you live (formal)?', '¿Dónde vive usted?'),
+((SELECT id FROM Lessons WHERE name = 'S01E04'), 'I''m from Glasgow but now I live in Edimburgh', 'Soy de Glasgow pero ahora vivo in Edimburgo.')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E05'), 'Brother / Sister', 'Hermano, Hermana'),
+((SELECT id FROM Lessons WHERE name = 'S01E05'), 'Father / mother', 'Padre / Madre'),
+((SELECT id FROM Lessons WHERE name = 'S01E05'), 'Husband / Wife', 'Marido / mujer'),
+((SELECT id FROM Lessons WHERE name = 'S01E05'), 'Son / daughter', 'Hijo / Hija'),
+((SELECT id FROM Lessons WHERE name = 'S01E05'), 'grandfather / grandmother', 'Abuelo / abuela'),
+((SELECT id FROM Lessons WHERE name = 'S01E05'), 'My brother / My sister', 'Mi hermano / mi hermana'),
+((SELECT id FROM Lessons WHERE name = 'S01E05'), 'This is my son / This my daughter', 'Este es mi hijo / Esta es mi hija'),
+((SELECT id FROM Lessons WHERE name = 'S01E05'), 'His name is Carlo / Her name is Maria', 'Se llama Carlo / Se llama Maria')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -143,3 +171,88 @@ se'),
 ((SELECT id FROM Lessons WHERE name = 'S02E03'), 'At 5:35', 'A las seis menos veinticinco'),
 ((SELECT id FROM Lessons WHERE name = 'S02E03'), 'At what time', '¿A qué hora?')
 ;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'ir (present)', 'voy
+vas
+va
+vamos
+vais
+van'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'hacer (present)', 'hago
+haces
+hace
+hacemos
+hacéis
+hacen'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'cenar', 'ceno
+cenas
+cena
+cenamos
+cenáis
+cenan'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'What do we do tomorrow?', '¿qué hacemos mañana?'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'What do we do tomorrow morning?', '¿qué hacemos mañana por la mañana?'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'What do we do this afternoon? We go the cinema', '¿qué hacemos esta tarde?
+vamos al cine'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'What do we do tonight? We go to the restaurant', '¿qué hacemos esta noche?
+vamos a un restaurante'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'We go to the restaurant close to the church', 'vamos al restaurant cerca de la iglesia'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'We go to the restaurant "the dragon"', 'vamos al restaurante que se llama "El Dragón"'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'We are dining together', 'cenamos juntos
+cenamos juntas'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'comer (present)', 'como
+comes
+come
+comemos
+coméis
+comen'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'to play piano', 'tocar el piano'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'to play football', 'jugar al futbal'),
+((SELECT id FROM Lessons WHERE name = 'S02E04'), 'to watch the TV', 'ver la televisión')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E05'), ' We are going to the theater', 'Vamos al teatro'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), ' We are going partying (4 versions x 2)', 'vamos de juerga
+vamos de copas (binge)
+vamos de fiesta
+vamos de pachanga
+
+salimos de juerga
+salimos de copas (binge)
+salimos de fiesta
+salimos de pachanga'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'We''re going to have a drink', 'vamos a tomar una copa'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'to give (present)', 'dar
+
+doy
+das
+da
+damos
+dáis
+dan'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'We''re "giving" a party', 'damos una fiesta'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'we''re back', 'estamos de vuelta'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'to go for a walk/ride/drive', 'dar una vuelta'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'After diner, we go for a walk', 'después de cenar, damos una vuelta'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'to meet up', 'quedar'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'we''ll meet up in the square', 'quedamos en la plaza'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'I don''t really like classical music', 'No me gusta mucho la música clásica.'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'At what time, do we meet? At 9 o''clock, is it OK?', 'A qué hora quedamos?
+A las nueve ¿te parece bien?'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'Where do we meet? At the bus station', '¿Dónde quedamos? En la estacion de autobuses'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'See you at 9 o''clock', 'Hasta las nueve'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'Trous noirs', 'agujeros negros'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'Physics', 'Física')
+;
+
+/*
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = ''), '', ''),
+;
+*/
+
