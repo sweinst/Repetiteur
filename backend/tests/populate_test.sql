@@ -1,5 +1,3 @@
-
-
 DELETE FROM QuestionHistory;
 DELETE FROM CourseUsers;
 DELETE FROM Questions;
@@ -20,6 +18,13 @@ VALUES
 ('Español 2', 'Spanish Level 2')
 ;
 
+INSERT INTO CourseUsers (course_id, user_id)
+VALUES 
+((SELECT id FROM Courses WHERE name = 'Español 1'), (SELECT id FROM Users WHERE username = 'jd')),
+((SELECT id FROM Courses WHERE name = 'Español 1'), (SELECT id FROM Users WHERE username = 'guest')),
+((SELECT id FROM Courses WHERE name = 'Español 2'), (SELECT id FROM Users WHERE username = 'guest'))
+;
+
 INSERT INTO Lessons (course_id, name, description)
 VALUES 
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E01', 'Saying how you are feeling'),
@@ -27,11 +32,15 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E03', 'Saying where you are from'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E04', 'More on nationalities'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E05', 'Talking about the family'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E06', 'Introduction to numbers'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E07', 'Jobs'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E03', 'Reflexive verbs'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E04', 'Making arrangements'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E05', 'Making more arrangements')
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E05', 'Making more arrangements'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E06', 'Using the correct version of the verb "to be"'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E07', 'Radical changing verbs')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -104,6 +113,49 @@ VALUES
 ((SELECT id FROM Lessons WHERE name = 'S01E05'), 'This is my son / This my daughter', 'Este es mi hijo / Esta es mi hija'),
 ((SELECT id FROM Lessons WHERE name = 'S01E05'), 'His name is Carlo / Her name is Maria', 'Se llama Carlo / Se llama Maria')
 ;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E06'), 'your father', 'tu padre'),
+((SELECT id FROM Lessons WHERE name = 'S01E06'), 'you / your', 'tú / tu'),
+((SELECT id FROM Lessons WHERE name = 'S01E06'), 'Mummy, dad', 'mamá / papá'),
+((SELECT id FROM Lessons WHERE name = 'S01E06'), 'to have (present)', 'tengo
+tienes
+tiene
+temenos
+teneis
+tienen'),
+((SELECT id FROM Lessons WHERE name = 'S01E06'), 'I have one brother / I have one sister', 'Tengo un hermano / tengo una hermana'),
+((SELECT id FROM Lessons WHERE name = 'S01E06'), '1, 2, 3, 4, 5, 6, 7, 8, 9, 10', 'Uno
+Dos
+Tres
+Cuatro
+Cinco
+Seis
+Siete
+Ocho
+Nueve
+Diez')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'teacher (m/f)', 'el profesor / la profesora'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'student (m.f.)', 'el estudiente / la estudiente'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'engineer (m.f.)', 'el ingeniero / la ingeniera'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'plumber (m.f.)', 'el fontanero / la fontanera'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'housewife', 'el ama de casa'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'What is you job? (unformal)', '¿En que trabajas?'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'What is you job? (formal)', '¿En que trabaja usted?'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'A shop/store', 'la tienda'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'A factory', 'la fabrica'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'office', 'la oficina'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'restaurant', 'el restaurante'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'hospital', 'el hospital'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'Do you like your job? yes, I like my job ', '¿Te gusta tu trabajo? Si, me gusto mi trabajo'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'Do you like your job? No, I don''t like my job ', '¿Te gusta tu trabajo? No, no me gusta mi trabajo'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'I don''t work', 'No trabajo'),
+((SELECT id FROM Lessons WHERE name = 'S01E07'), 'I''m retired (m.f.)', 'Estoy jubilado / Estoy jubilada');
 
 INSERT INTO Questions (lesson_id, question, answer)
 VALUES 
@@ -247,6 +299,138 @@ A las nueve ¿te parece bien?'),
 ((SELECT id FROM Lessons WHERE name = 'S02E05'), 'See you at 9 o''clock', 'Hasta las nueve'),
 ((SELECT id FROM Lessons WHERE name = 'S02E05'), 'Trous noirs', 'agujeros negros'),
 ((SELECT id FROM Lessons WHERE name = 'S02E05'), 'Physics', 'Física')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'estar (present)', 'estoy
+estás
+está
+estamos
+estáis
+estan'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'estar use', 'temporary condition
+estoy cansado, estoy triste
+estoy bien, estoy deprimido
+estoy contento
+
+Location
+estamos en el estudio
+el estudio esta en Escocia'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'ser (present)', 'soy
+eres
+es
+somos
+sois
+son'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'ser use', 'If it''s not a location
+if it''s not a temporary situation
+
+who you are
+physical characteristics
+inherent qualities (profession, religion, nationality, ..)
+time, price'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'he''s honest', 'es honrado'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'she''s catholic', 'es católica'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'he''s mexican', 'es mexicano'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'she''s a happy person but currently she''s sad', 'esta una persona contenta pero en este momento está triste'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'I''m John', 'soy John'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'it''s two in the morning', 'son la dos de la madrudaga'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'dawn', 'la madrudaga'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'I''m old', 'soy viejo'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'I''m young', 'soy joven'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'I''m tall', 'soy alyo'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'It is 4 euros', 'son cuatros euros'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'I have dark hairs', 'soy moreno'),
+((SELECT id FROM Lessons WHERE name = 'S02E06'), 'She''s sad', 'esta triste')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to want/to love (present)', 'quiero
+quieres
+quiere
+queremos
+queréis
+quieren'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'I want to sing', 'quiero cantar'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'Do you want to have a coffee?', '¿quieres tomar un café?'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'Do you want to dance?', '¿Quieres bailar?'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'Do you want to eat in a restaurant tonight? (pl.)', '¿Queréis cenar en un restaurante esta noche?'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'They want to learn Spanish in Cuba', 'Quieren apprender español en Cuba.'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to think (present)', 'pensar
+
+pienso
+piensas
+piensa
+pensamos
+pensáis
+piensan'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'I think I''m going to a restaurant tongiht', 'pienso que voy a un restaurante esta noche'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to can/to be able to (present)', 'poder
+
+puedo
+puedes
+puede
+podemos
+podéis
+pueden'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'Can I dance?', '¿puedo bailar?'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'Can you dine in a restaurant?', '¿Puedes cenar en un restaurante?'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'Can we go to the cinema?', '¿Podemos ir al cine?'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to return/to come back (present)', 'volver
+
+vuelvo
+vuelves
+vuelve
+volvemos
+volvéis
+vuelven'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to warn (present)', 'advertir (e -> ie)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to close (present)', 'cerrar (e->ie)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to defend (present)', 'defender (e->ie)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to wake oneself up (present)', 'despertarse (e->ie)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to start (present)', 'empezar (e -> ie)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to lose (present)', 'perder (e -> ie)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to feel (present)', 'sentir (e -> ie)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to have (present)', 'tener
+
+tengo
+tienes
+tiene
+tenemos
+tenéis
+tienen'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to come (present)', 'venir
+
+vengo
+vienes
+viene
+venemos
+venéis
+vienen'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to go to bed (present)', 'acostarse (o -> ue)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to count, to tell (present)', 'contar (o -> ue)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to sleep (present)', 'dormir (o -> ue)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to find (present)', 'encontrar (o -> ue)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to show (present)', 'mostrar (o->ue)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to fly (present)', 'volar (o -> ue)'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to play (present)', 'jugar (u ->ue)
+
+juego
+juegas
+juega
+jugamos
+jugáis
+juegan'),
+((SELECT id FROM Lessons WHERE name = 'S02E07'), 'to ask (present)', 'pedir (e -> I)
+
+pido
+pides
+pide
+pedimo
+pedis
+piden')
 ;
 
 /*
