@@ -21,7 +21,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Courses (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL UNIQUE,
     description TEXT NOT NULL
 );
 
@@ -29,7 +29,8 @@ CREATE TABLE Lessons (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     course_id UUID NOT NULL REFERENCES Courses(id),
     name VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL
+    description TEXT NOT NULL,
+    CONSTRAINT UQ_course_id_name UNIQUE(course_id, name)
 );
 
 CREATE TABLE Questions (
