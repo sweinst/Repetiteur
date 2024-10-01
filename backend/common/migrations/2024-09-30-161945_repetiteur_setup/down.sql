@@ -1,3 +1,5 @@
+DROP TABLE UserPreferences;
+DROP TABLE LessonHistory;
 DROP TABLE QuestionHistory;
 DROP TABLE CourseUsers;
 DROP TABLE Questions;

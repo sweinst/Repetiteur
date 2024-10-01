@@ -49,7 +49,23 @@ CREATE TABLE CourseUsers (
 CREATE TABLE QuestionHistory (
     question_id UUID NOT NULL REFERENCES Questions(id),
     user_id UUID NOT NULL REFERENCES Users(id),
-    last_number_of_successes INT NOT NULL DEFAULT 0,
+    last_is_success BOOLEAN NOT NULL DEFAULT FALSE,
+    last_number INT NOT NULL DEFAULT 0,
     last_asked TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (question_id, user_id)
+);
+
+CREATE TABLE LessonHistory (
+    lesson_id UUID NOT NULL REFERENCES Lessons(id),
+    user_id UUID NOT NULL REFERENCES Users(id),
+    last_asked TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (lesson_id, user_id)
+);
+
+CREATE TABLE UserPreferences (
+    user_id UUID PRIMARY KEY REFERENCES Users(id),
+    number_of_questions_per_session INT NOT NULL DEFAULT 50,
+    number_of_successes_to_pass INT NOT NULL DEFAULT 5,
+    proportion_of_failed_questions INT NOT NULL DEFAULT 25,
+    proportion_of_old_questions INT NOT NULL DEFAULT 25
 );

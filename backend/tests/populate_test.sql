@@ -1,3 +1,5 @@
+DELETE FROM UserPreferences;
+DELETE FROM LessonHistory;
 DELETE FROM QuestionHistory;
 DELETE FROM CourseUsers;
 DELETE FROM Questions;
