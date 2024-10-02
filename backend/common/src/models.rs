@@ -89,6 +89,18 @@ pub struct User {
     pub created: NaiveDateTime,
 }
 
+#[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
+#[diesel(belongs_to(User))]
+#[diesel(primary_key(user_id))]
+#[diesel(table_name = userpreferences)]
+pub struct Userpreference {
+    pub user_id: Uuid,
+    pub number_of_questions_per_session: i32,
+    pub number_of_successes_to_pass: i32,
+    pub proportion_of_failed_questions: i32,
+    pub proportion_of_old_questions: i32,
+}
+
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset)]
 #[diesel(table_name = courses)]
 pub struct Course {
@@ -126,4 +138,28 @@ pub struct CourseUser {
     pub course_id: Uuid,
     pub user_id: Uuid,
     pub role_id: i32,
+}
+
+#[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
+#[diesel(belongs_to(Question))]
+#[diesel(belongs_to(User))]
+#[diesel(primary_key(question_id, user_id))]
+#[diesel(table_name = questionhistory)]
+pub struct Questionhistory {
+    pub question_id: Uuid,
+    pub user_id: Uuid,
+    pub last_is_success: bool,
+    pub last_number: i32,
+    pub last_asked: NaiveDateTime,
+}
+
+#[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
+#[diesel(belongs_to(Lesson))]
+#[diesel(belongs_to(User))]
+#[diesel(primary_key(lesson_id, user_id))]
+#[diesel(table_name = lessonhistory)]
+pub struct Lessonhistory {
+    pub lesson_id: Uuid,
+    pub user_id: Uuid,
+    pub last_asked: NaiveDateTime,
 }
