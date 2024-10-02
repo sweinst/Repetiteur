@@ -9,9 +9,9 @@ DELETE FROM Users;
 
 INSERT INTO Users (username, email, password, is_admin)
 VALUES 
-('guest', 'guest@doe.com', 'xtodo;', FALSE),
-('admin', 'guest@doe.com', 'xtodo;', TRUE),
-('jd', 'john@doe.com', 'xtodo;', FALSE)
+('guest', 'guest@doe.com', '$argon2id$v=19$m=19456,t=2,p=1$jI4o6MadRdwMuNQJjheD3A$FYnd+aQw5DbQ6StPkZbiNaqzMxf58v7ufyOSnnO/+vE;', FALSE),
+('admin', 'guest@doe.com', '$argon2id$v=19$m=19456,t=2,p=1$jI4o6MadRdwMuNQJjheD3A$FYnd+aQw5DbQ6StPkZbiNaqzMxf58v7ufyOSnnO/+vE;', TRUE),
+('jd', 'john@doe.com', '$argon2id$v=19$m=19456,t=2,p=1$jI4o6MadRdwMuNQJjheD3A$FYnd+aQw5DbQ6StPkZbiNaqzMxf58v7ufyOSnnO/+vE;', FALSE)
 ;
 
 INSERT INTO Courses (name, description)
