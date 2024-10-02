@@ -1,7 +1,7 @@
 use common::auth::{check_password, hash_password};
 
 #[test]
-fn test_password() {
+fn test_password_hashing() {
     let passwords = vec![
         "password", 
         "mot75656^&==", 
@@ -11,6 +11,6 @@ fn test_password() {
         let hash = hash_password(password.to_string());
         assert!(hash.is_ok());
         let hash = hash.unwrap();
-        assert!(check_password(&password.to_string(), &hash).unwrap());
+        assert!(check_password(&password.to_string(), &hash).is_ok());
     }
 }
