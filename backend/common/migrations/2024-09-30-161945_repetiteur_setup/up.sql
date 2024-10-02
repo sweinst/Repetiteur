@@ -1,13 +1,15 @@
 CREATE TABLE Roles (
-    -- a bit value to represent the role
-    value INT PRIMARY KEY,
+    id INT PRIMARY KEY,
+    code varchar(64) NOT NULL UNIQUE,
     name VARCHAR(255) NOT NULL
 );
 
-INSERT INTO Roles (value, name) VALUES (1, 'Read');
-INSERT INTO Roles (value, name) VALUES (2, 'Write');
-INSERT INTO Roles (value, name) VALUES (3, 'Read-Write');
-INSERT INTO Roles (value, name) VALUES (7, 'Admin');
+INSERT INTO Roles (id, code, name) 
+VALUES 
+(1, 'viewer', 'Viewer'),
+(2, 'editor', 'Editor'),
+(3, 'admin', 'Administrator')
+;
 
 CREATE TABLE Users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -16,7 +18,8 @@ CREATE TABLE Users (
     -- this is not the password, but the hash of the password
     -- and it cannot be reversed
     password VARCHAR(128) NOT NULL,
-    role INT NOT NULL REFERENCES Roles(value)
+    is_admin BOOLEAN NOT NULL DEFAULT FALSE,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Courses (
@@ -43,6 +46,7 @@ CREATE TABLE Questions (
 CREATE TABLE CourseUsers (
     course_id UUID NOT NULL REFERENCES Courses(id),
     user_id UUID NOT NULL REFERENCES Users(id),
+    role_id INT NOT NULL REFERENCES Roles(id),
     PRIMARY KEY (course_id, user_id)
 );
 

@@ -7,11 +7,11 @@ DELETE FROM Lessons;
 DELETE FROM Courses;
 DELETE FROM Users;
 
-INSERT INTO Users (username, email, password, role)
+INSERT INTO Users (username, email, password, is_admin)
 VALUES 
-('guest', 'guest@doe.com', 'xtodo;', 1),
-('admin', 'guest@doe.com', 'xtodo;', 7),
-('jd', 'john@doe.com', 'xtodo;', 3)
+('guest', 'guest@doe.com', 'xtodo;', FALSE),
+('admin', 'guest@doe.com', 'xtodo;', TRUE),
+('jd', 'john@doe.com', 'xtodo;', FALSE)
 ;
 
 INSERT INTO Courses (name, description)
@@ -20,11 +20,11 @@ VALUES
 ('Español 2', 'Spanish Level 2')
 ;
 
-INSERT INTO CourseUsers (course_id, user_id)
+INSERT INTO CourseUsers (course_id, user_id, role_id)
 VALUES 
-((SELECT id FROM Courses WHERE name = 'Español 1'), (SELECT id FROM Users WHERE username = 'jd')),
-((SELECT id FROM Courses WHERE name = 'Español 1'), (SELECT id FROM Users WHERE username = 'guest')),
-((SELECT id FROM Courses WHERE name = 'Español 2'), (SELECT id FROM Users WHERE username = 'guest'))
+((SELECT id FROM Courses WHERE name = 'Español 1'), (SELECT id FROM Users WHERE username = 'jd'), 2),
+((SELECT id FROM Courses WHERE name = 'Español 1'), (SELECT id FROM Users WHERE username = 'guest'), 1),
+((SELECT id FROM Courses WHERE name = 'Español 2'), (SELECT id FROM Users WHERE username = 'guest'), 1)
 ;
 
 INSERT INTO Lessons (course_id, name, description)

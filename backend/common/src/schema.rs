@@ -13,6 +13,7 @@ diesel::table! {
     courseusers (course_id, user_id) {
         course_id -> Uuid,
         user_id -> Uuid,
+        role_id -> Int4,
     }
 }
 
@@ -54,8 +55,10 @@ diesel::table! {
 }
 
 diesel::table! {
-    roles (value) {
-        value -> Int4,
+    roles (id) {
+        id -> Int4,
+        #[max_length = 64]
+        code -> Varchar,
         #[max_length = 255]
         name -> Varchar,
     }
@@ -80,11 +83,13 @@ diesel::table! {
         email -> Varchar,
         #[max_length = 128]
         password -> Varchar,
-        role -> Int4,
+        is_admin -> Bool,
+        created -> Timestamp,
     }
 }
 
 diesel::joinable!(courseusers -> courses (course_id));
+diesel::joinable!(courseusers -> roles (role_id));
 diesel::joinable!(courseusers -> users (user_id));
 diesel::joinable!(lessonhistory -> lessons (lesson_id));
 diesel::joinable!(lessonhistory -> users (user_id));
@@ -93,7 +98,6 @@ diesel::joinable!(questionhistory -> questions (question_id));
 diesel::joinable!(questionhistory -> users (user_id));
 diesel::joinable!(questions -> lessons (lesson_id));
 diesel::joinable!(userpreferences -> users (user_id));
-diesel::joinable!(users -> roles (role));
 
 diesel::allow_tables_to_appear_in_same_query!(
     courses,

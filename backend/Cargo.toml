@@ -1,12 +1,10 @@
 [workspace]
 resolver = "2"
-members = [
-    "common",
-    "cli",
-    "service",
-]
+members = ["common", "cli", "service"]
 
 [workspace.dependencies]
 serde = "1.0"
 serde_json = "1.0"
 chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4"] }
+dotenvy = "0.15"
