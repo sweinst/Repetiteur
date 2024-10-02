@@ -8,7 +8,7 @@ fn test_password_hashing() {
         "authb8%£\"aa",
         ];
     for password in passwords {
-        let hash = hash_password(password.to_string());
+        let hash = hash_password(&password.to_string());
         assert!(hash.is_ok());
         let hash = hash.unwrap();
         assert!(check_password(&password.to_string(), &hash).is_ok());
