@@ -1,7 +1,7 @@
 use diesel::{connection::SimpleConnection, PgConnection};
 use std::{error::Error, path::PathBuf};
 
-/// Run s sql script.
+/// Runs s sql script.
 /// if [path] is relative, it will be resolved relative to the project root.
 pub fn run_sql_script(path: String, conn: &mut PgConnection) -> Result<(), Box<dyn Error>> {
     let mut path = PathBuf::from(path);

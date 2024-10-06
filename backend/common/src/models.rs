@@ -13,6 +13,7 @@ use std::io::Write;
 use std::str::FromStr;
 use uuid::Uuid;
 
+/// This enum is used to define the role of a user.
 #[derive(AsExpression, Debug, FromSqlRow)]
 #[diesel(sql_type=Text)]
 pub enum RoleCode {
@@ -69,6 +70,7 @@ impl ToSql<Text, Pg> for RoleCode {
     }
 }
 
+/// This struct is returned by the database when a role is queried.
 #[derive(Queryable, Debug, Identifiable)]
 #[diesel(table_name = roles)]
 pub struct Role {
@@ -77,6 +79,7 @@ pub struct Role {
     pub name: String,
 }
 
+/// This struct is returned by the database when a user is queried.
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset)]
 #[diesel(table_name = users)]
 #[diesel(check_for_backend(Pg))]
@@ -89,6 +92,7 @@ pub struct User {
     pub created: NaiveDateTime,
 }
 
+/// This struct is used to insert a new user in the database.
 #[derive(Insertable, Debug)]
 #[diesel(table_name=users)]
 pub struct NewUser {
@@ -98,6 +102,7 @@ pub struct NewUser {
     pub is_admin: bool,
 }
 
+/// This struct is used for storing user preferences in the database.
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
 #[diesel(belongs_to(User))]
 #[diesel(primary_key(user_id))]
@@ -110,6 +115,7 @@ pub struct Userpreference {
     pub proportion_of_old_questions: i32,
 }
 
+/// This struct is returned by the database when a course is queried.
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset)]
 #[diesel(table_name = courses)]
 pub struct Course {
@@ -118,6 +124,7 @@ pub struct Course {
     pub description: String,
 }
 
+/// This struct is returned by the database when a lesson is queried.
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
 #[diesel(belongs_to(Course))]
 #[diesel(table_name = lessons)]
@@ -128,6 +135,7 @@ pub struct Lesson {
     pub description: String,
 }
 
+/// This struct is returned by the database when a question is queried.
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
 #[diesel(belongs_to(Lesson))]
 #[diesel(table_name = questions)]
@@ -138,6 +146,7 @@ pub struct Question {
     pub answer: String,
 }
 
+/// This struct is returned by the database when querying users which can work on a specific lesson.
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
 #[diesel(primary_key(course_id, user_id))]
 #[diesel(belongs_to(Course))]
@@ -149,6 +158,7 @@ pub struct CourseUser {
     pub role_id: i32,
 }
 
+/// This struct allows to store the history of a user with a specific question.
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
 #[diesel(belongs_to(Question))]
 #[diesel(belongs_to(User))]
@@ -162,6 +172,7 @@ pub struct Questionhistory {
     pub last_asked: NaiveDateTime,
 }
 
+/// This struct is returned by the history of lessons for a specific lesson.
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
 #[diesel(belongs_to(Lesson))]
 #[diesel(belongs_to(User))]
