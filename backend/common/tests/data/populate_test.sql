@@ -51,7 +51,7 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E08', 'Agreement of adjectives'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E09', 'Describing people'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E10', 'Quiz'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E11', 'Talking about the future'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E11', 'Talking about the future')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
