@@ -89,6 +89,15 @@ pub struct User {
     pub created: NaiveDateTime,
 }
 
+#[derive(Insertable, Debug)]
+#[diesel(table_name=users)]
+pub struct NewUser {
+    pub username: String,
+    pub email: String,
+    pub password: String,
+    pub is_admin: bool,
+}
+
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
 #[diesel(belongs_to(User))]
 #[diesel(primary_key(user_id))]
