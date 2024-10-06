@@ -1,14 +1,18 @@
-use std::path::PathBuf;
+use diesel::{connection::SimpleConnection, PgConnection};
+use std::{error::Error, path::PathBuf};
 
 /// Run s sql script. If [path] starts with a '/',
 /// a relative path is used, return an error
-pub fn runSQLScript(path: String) -> Result<(), Box<dyn std::error::Error>> {
+pub fn run_sql_script(path: String, conn: &mut PgConnection) -> Result<(), Box<dyn Error>> {
     let mut d: PathBuf;
-    if (!path.starts_with('/')) {
+    if !path.starts_with('/') {
         d = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-        d.push("test/populate_test.sql");
+        d = d.join("tests/populate_test.sql");
     } else {
-        d = PathBuf::new!(path);
+        d = PathBuf::from(path);
     }
-    std::fs::read_to_string(d)?;
+    let sql = std::fs::read_to_string(d)?;
+    let _ = conn.batch_execute(sql.as_str());
+
+    Ok(())
 }

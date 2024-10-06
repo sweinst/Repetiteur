@@ -14,5 +14,6 @@ serde_json = { workspace = true }
 chrono = { workspace = true }
 uuid = { workspace = true }
 clap = { workspace = true }
-[test-dependencies]
-test-context = { workspace = true }
+
+[dev-dependencies]
+test-env-helpers = { workspace = true }

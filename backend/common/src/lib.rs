@@ -1,4 +1,4 @@
 pub mod auth;
-mod models;
-mod repositories;
-mod schema;
+pub mod models;
+pub mod repositories;
+pub mod schema;
