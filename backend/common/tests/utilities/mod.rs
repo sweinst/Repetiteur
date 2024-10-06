@@ -1,6 +1,7 @@
 use common::repositories::{load_db_connection, utils::run_sql_script};
 use dotenvy::dotenv;
 
+#[allow(dead_code)]
 pub fn setup_test_data() {
     dotenv().ok();
     let mut conn = load_db_connection();

@@ -6,10 +6,7 @@ mod utilities;
 mod basic_authentication {
     use common::auth::{check_password, hash_password};
 
-    use crate::utilities;
-
     fn before_all() {
-        utilities::setup_test_data();
     }
 
     #[test]

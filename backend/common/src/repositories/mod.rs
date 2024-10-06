@@ -1,5 +1,6 @@
 use diesel::{Connection, PgConnection};
 use diesel_async::{AsyncConnection, AsyncPgConnection};
+pub mod users;
 pub mod utils;
 
 pub async fn load_async_db_connection() -> AsyncPgConnection {
@@ -11,6 +12,7 @@ pub async fn load_async_db_connection() -> AsyncPgConnection {
     }
     cnx.expect("Cannot connect to Postgres")
 }
+
 pub fn load_db_connection() -> PgConnection {
     let database_url = std::env::var("DATABASE_URL").expect("Cannot load DB url from environment");
     println!("Connecting to {}", database_url);
