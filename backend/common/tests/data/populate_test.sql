@@ -38,6 +38,9 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E07', 'Jobs'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E08', 'Likes and dislikes'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E09', 'Accentuation'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E10', 'Christmas Edition'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E11', ' I only speak a little spanish'),
+
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E03', 'Reflexive verbs'),
@@ -46,7 +49,9 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E06', 'Using the correct version of the verb "to be"'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E07', 'Radical changing verbs'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E08', 'Agreement of adjectives'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E09', 'Describing people')
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E09', 'Describing people'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E10', 'Quiz'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E11', 'Talking about the future'),
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -165,28 +170,6 @@ VALUES
 
 INSERT INTO Questions (lesson_id, question, answer)
 VALUES 
-((SELECT id FROM Lessons WHERE name = 'S01E08'), 'Accentuation', '1. Words ending in a vowel, n, or s.
-For words that end in a vowel, the letter n, or the letter s, the stress is on the next to last syllable.
-Examples:
-     todo (to-do) all/every
-     inteligente (in-te-li-gen-te) smart
-     el examen (e-xa-men) exam
-     joven (jo-ven) young
-     lunes (lu-nes) Monday
-     los calcetines (cal-ce-ti-nes) socks
-2. Words ending in a consonant (not n, s)
-For words that end in all other consonants (not n or s), the stress falls on the last syllable.
-Examples:
-     comer (co-mer)  to eat
-     la ciudad (ciu-dad)  the city
-     el profesor (pro-fe-sor)  the professor/teacher
-     el animal (a-ni-mal)  the animal
-     Madrid (Ma-drid)  Madrid
-')
-;
-
-INSERT INTO Questions (lesson_id, question, answer)
-VALUES 
 ((SELECT id FROM Lessons WHERE name = 'S01E08'), 'Do you like your job? (formal)', '¿Le gusta su trabajo?'),
 ((SELECT id FROM Lessons WHERE name = 'S01E08'), 'Do you like your job? (unformal)', '¿te gusta tu trabajo?'),
 ((SELECT id FROM Lessons WHERE name = 'S01E08'), 'I like music', 'me gusta la música'),
@@ -232,6 +215,86 @@ leen
 ((SELECT id FROM Lessons WHERE name = 'S01E08'), 'I like to learn spanish', 'Me gusta apprender español')
 ;
 
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E09'), 'Accentuation', '1. Words ending in a vowel, n, or s.
+For words that end in a vowel, the letter n, or the letter s, the stress is on the next to last syllable.
+Examples:
+     todo (to-do) all/every
+     inteligente (in-te-li-gen-te) smart
+     el examen (e-xa-men) exam
+     joven (jo-ven) young
+     lunes (lu-nes) Monday
+     los calcetines (cal-ce-ti-nes) socks
+2. Words ending in a consonant (not n, s)
+For words that end in all other consonants (not n or s), the stress falls on the last syllable.
+Examples:
+     comer (co-mer)  to eat
+     la ciudad (ciu-dad)  the city
+     el profesor (pro-fe-sor)  the professor/teacher
+     el animal (a-ni-mal)  the animal
+     Madrid (Ma-drid)  Madrid
+')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E10'), 'Merry Christmas!', '¡Feliz Navidad!'),
+((SELECT id FROM Lessons WHERE name = 'S01E10'), 'Happy new year!', '¡Prospero año nuevo!'),
+((SELECT id FROM Lessons WHERE name = 'S01E10'), 'Today', 'Hoy'),
+((SELECT id FROM Lessons WHERE name = 'S01E10'), 'bell', 'la campana'),
+((SELECT id FROM Lessons WHERE name = 'S01E10'), 'haber (present)', 'he
+has
+ha - (impersonal) hay
+hemos
+habéis
+han'),
+((SELECT id FROM Lessons WHERE name = 'S01E10'), 'You have to', 'hay (haber) que'),
+((SELECT id FROM Lessons WHERE name = 'S01E10'), 'to celebrate', 'festejar'),
+((SELECT id FROM Lessons WHERE name = 'S01E10'), 'Little boy', 'el niñito'),
+((SELECT id FROM Lessons WHERE name = 'S01E10'), 'Yesterday', 'ayer'),
+((SELECT id FROM Lessons WHERE name = 'S01E10'), 'Christmas eve', 'Nochebuena')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'Scottish (m.,f.)', 'escocés, escocesa'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'French (m.,f.)', 'francés, francesa'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'above all', 'sobre todo'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'languages', 'los idiomas'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'languages: French, English, Italian, German, Japanese, Chinese', 'Los idiomas: español, francés, ingles, italiano, alemán, japonés, chino'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'to speak (present)', 'hablar
+
+hablo
+hablas
+habla
+hablamos
+habláis
+hablan'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'Do you speak Spanish? (formal)', '¿Habla usted espanõl?'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'Do you speak Spanish? (unformal)', '¿Hablas espanõl?'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'I speak a little Spanish', 'Hablo un poco de español'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'I understand a little Spanish', 'Entiendo un poco de español'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'to understand (present)', 'Entender
+
+Entiendo
+Entiendes
+Entiende
+Entendemos
+Entendéis
+Entienden'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'Do you understand? (formal, unformal). I don''t understand.', '¿Entien usted?
+¿Entiendes?
+No entiendo'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'I''m sorry', 'lo siento'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'I''m learning Spanish', 'Estoy apprediendo español'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'Can you speak more slowly, please? (formal, unformal)', '¿Puedes hablar más despacio, por favor?
+¿Puede usted hablar más despacio, por favor?'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'Could you repeat, please? (formal, unformal)', '¿Puedes repetir, por favor?
+¿Puede usted repetir, por favor?'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'How do you spell it?', '¿Cómo se escribe?'),
+((SELECT id FROM Lessons WHERE name = 'S01E11'), 'How do say "watch" in Spanish?', '¿Cómo se dice "watch" en español?')
+;
 
 INSERT INTO Questions (lesson_id, question, answer)
 VALUES 
@@ -568,6 +631,65 @@ tiene los ojos marrones'),
 ((SELECT id FROM Lessons WHERE name = 'S02E09'), 'he has blue eyes', 'tiene los ojos azules'),
 ((SELECT id FROM Lessons WHERE name = 'S02E09'), 'He has red hairs', 'es pelirojo'),
 ((SELECT id FROM Lessons WHERE name = 'S02E09'), 'red', 'rojo/a')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'to carry/to wear', 'llevar'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'Mark wears a t-shirt', 'Mark lleva una camiseta'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'a sweater', 'un jersey'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'an item of clothing', 'la ropa'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'glasses', 'las gafas'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'sun glasses', 'las gafas de sol'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'red - black - white - grey', 'rojo - negro - blanco -gris'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'he has grey hairs', 'tiene el pelo gris'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'to behave', 'comportarse'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'he behave himself', 'se comporta bien'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'famous', 'famoso/a'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'well known', 'conocido/a'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'a role', 'un papel'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'He was born in 1945', 'nació en 1945'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'he died en 2003', 'murió en 2003'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'a footballer', 'un futbolista'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'South-Africa', 'Sudàſfrica'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'Peace Nobel Prize', 'Premio Nobel de la Paz'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'She is 81 years old', 'Tiene ochenta y un años.'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'A palace', 'Un palacio'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'She is quite young', 'Es bastante joven.'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'He has a beard', 'Lleva barba'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'to give them a gift', 'darles regalos'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'the grandfather', 'el abuelo'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'the great-grandfather', 'el bisabuelo'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'sometimes', 'a veces'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'always', 'siempre'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'many people say that...', 'mucha gente dice que...'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'so...', 'asi que..'),
+((SELECT id FROM Lessons WHERE name = 'S02E10'), 'to interpret', 'interpretar')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'We are going to begin', 'Vamos a empezar'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'What are you going to do in 2008?', '¿Que vas a hacer en 2008?'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'I''m going to do more exercice', 'voy a hacer más ejercicio'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'What are you going to buy?
+I''m going to save money for buy a car', '¿Qué vas a comprar?
+voy a ahorrar dinero para comprar un coche.'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'I''m going to learn more Spanish', 'voy a apprender más español'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'I''m going to study more', 'voy a estudiar más'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'I''m going to stop smoking', 'voy a dejar de fumar'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'I''m going to stop eating too much chocolate', 'voy a dejar de comer demasiado chocolate'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'This year, I''m going to get fit!', '¡Este año, voy a ponerme en forma!'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'I''m going to learn a little Russian, Chinese and japonese', 'voy a apprender un poco de ruso, de chino, y de japonés'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'I''m going to improve my Spanish', 'voy a mejorar mi español'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'I''m going to have a shower (2 replies)', 'voy a ducharme
+me voy a duchar'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'to write a letter', 'escribir una carta'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'to send a postcard to my mother', 'enviar una tarjeta postal a mi madre'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'to play golf', 'jugar al golf'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'to spend a week of holidays in Mallorca', 'pasar une samana de vacaciones en Mallorca'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'to buy a computer', 'comprar un ordenador'),
+((SELECT id FROM Lessons WHERE name = 'S02E11'), 'to do my home work (2 poss)', 'hacer mis deberes/tareas')
 ;
 /*
 INSERT INTO Questions (lesson_id, question, answer)
