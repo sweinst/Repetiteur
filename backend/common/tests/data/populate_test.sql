@@ -40,6 +40,8 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E09', 'Accentuation'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E10', 'Christmas Edition'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E11', ' I only speak a little spanish'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E12', ' Numbers, months, days and seasons'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E13', ' Directions'),
 
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
@@ -51,7 +53,9 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E08', 'Agreement of adjectives'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E09', 'Describing people'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E10', 'Quiz'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E11', 'Talking about the future')
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E11', 'Talking about the future'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E12', 'Review of present tense verbs'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E13', 'Introducing the preterit tense')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -294,6 +298,107 @@ No entiendo'),
 ¿Puede usted repetir, por favor?'),
 ((SELECT id FROM Lessons WHERE name = 'S01E11'), 'How do you spell it?', '¿Cómo se escribe?'),
 ((SELECT id FROM Lessons WHERE name = 'S01E11'), 'How do say "watch" in Spanish?', '¿Cómo se dice "watch" en español?')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E12'), '11, 12, 13, 14, 15, 16, 17, 18, 19, 20', 'once
+doce
+trece
+catorce
+quince
+dieciséis
+diecisiete
+dieciocho
+diecinueve
+veinte'),
+((SELECT id FROM Lessons WHERE name = 'S01E12'), '21, 22, 23, 24, 25, 26, 27, 28, 29, 30', 'veintiuno
+veintidós
+veintitrés
+veinticuatro
+veinticinco
+veintiséis
+veintisiete
+veintiocho
+veintinueve
+treinta'),
+((SELECT id FROM Lessons WHERE name = 'S01E12'), '30, 31, 32, 33, 40, 50, 60, 70, 80, 90', 'treintra y uno
+treintra y dos
+treintra y trres
+cuarenta
+cincuenta
+sesenta
+setenta
+ochenta
+noventa'),
+((SELECT id FROM Lessons WHERE name = 'S01E12'), '100, 101, 102, 110, 111, 200, 300, 400, 500, 600, 700, 800, 900', 'cien
+cientos uno
+cientos dos 
+cientos diez
+cientos once
+doscientos
+trescientos
+cuatrocientos
+quinientos
+seiscientos
+setecientos
+ochocientos
+novecientos'),
+((SELECT id FROM Lessons WHERE name = 'S01E12'), '1,000, 1,001, 1,111, 2,000, 3,000, 1,000,000, 3,000,003', 'mil
+mil once
+mil cientos once
+dos mil
+tres mil
+un millon
+tres millones tres'),
+((SELECT id FROM Lessons WHERE name = 'S01E12'), '324, 642, 555, 1282', 'tres cientos vienticuatro
+sesientos cuaranta y dos
+quinientos cincuenta y cinco
+mil dos cientos ochenta y dos'),
+((SELECT id FROM Lessons WHERE name = 'S01E12'), 'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday', 'lunes
+martes
+miércoles
+jueves
+viernes
+sábado
+domingo'),
+((SELECT id FROM Lessons WHERE name = 'S01E12'), 'January, February, March, April, May, June. July, August, September, October, November, December', 'Enero
+Febrero
+Marzo
+Abril
+Mayo
+Junio
+Julio
+Agosto
+Septiembre
+Octubre
+Noviembre
+Diciembre'),
+((SELECT id FROM Lessons WHERE name = 'S01E12'), 'spring, summer, autumn, winter', 'la primavera
+el verano
+al otoño
+el invierno'),
+((SELECT id FROM Lessons WHERE name = 'S01E12'), 'Today, it''s the 7th of January 2007', 'hoy es el siete de enero de dos mil siete'),
+((SELECT id FROM Lessons WHERE name = 'S01E12'), 'My birthday is the 5th of March', 'Mi cumpleaños es el cinco de Marzo')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'the museum', 'el museo'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'the bank', 'el banco'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'the restaurant', 'el restaurante'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'the main square', 'la plaza mayor'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'the market', 'el mercado'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'the cathedral', 'la catedral'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'the office of tourism', 'la oficina de turismo'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'the swimming pool', 'la piscina'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'Excuse-me, Where is the museum?', '¿Por favor, dónde esta el museo?'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'the musem is here', 'Mire, el museo está aquí'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'go straight on', 'sigua todo recto'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'turn right', 'doble a la derecha'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'turn left', 'doble a la izquierda'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'Is the museum far from here?', '¿El museo está lejos de aquí?'),
+((SELECT id FROM Lessons WHERE name = 'S01E13'), 'Is the bank close from here?', '¿El banco está cerca de aquí?')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -691,6 +796,82 @@ me voy a duchar'),
 ((SELECT id FROM Lessons WHERE name = 'S02E11'), 'to buy a computer', 'comprar un ordenador'),
 ((SELECT id FROM Lessons WHERE name = 'S02E11'), 'to do my home work (2 poss)', 'hacer mis deberes/tareas')
 ;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'hablar - regular 1 (present)', 'hablo
+hablas
+habla
+hablamos
+habláis
+hablan'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'comer - regular2 (present)', 'como
+comes
+come
+comemos
+coméis
+comen'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to sell', 'vender'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to learn', 'apprender'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to live - regular 2 (present)', 'vivo
+vives
+vive
+vivimos
+vivís
+viven'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to open/open', 'abrir/abierto'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to wash yourself (present)', 'me lavo
+te lavas
+se lava
+nos lavamos
+os laváis
+se lavan'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to drink', 'beber'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to understand', 'comprender'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to believe', 'creer'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to break', 'romper'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'this house is for sale', 'se vende esta casa'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to cover', 'cubrir'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to decide', 'decidir'),
+((SELECT id FROM Lessons WHERE name = 'S02E12'), 'to suffer', 'sufrir')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'the preterit tense', 'el pretérito indefinido'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'I spoke to my mother', 'hablé con mi madre'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'yesterday, I sang a song', 'Ayer, canté una canción'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'I danced with my friend', 'Bailé con mi amigo/a'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'Did you speak Spanish yesterday? Yes, I spoke Spanish yesterday', '¿Hablaste español ayer?
+Si, hablé español ayer.'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'Did you sing a song yesterday? Yes, I sang a song yesterday', '¿Cantaste una canción ayer?
+Si, canté una canción ayer.'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'hablar (preterit)', 'hablé
+hablaste
+habló
+hablamos
+hablasteis
+hablaron'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'bailar (preterit)', 'bailé
+baliaste
+bailó
+bailamos
+baliasteis
+baliaron'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'cantar (preterit)', 'canté
+cantaste
+cantó
+cantamos
+cantasteis
+cantaron'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'during the holidays', 'durante las vacaciones'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'last week', 'la samana pasada'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'two years ago', 'hace dos años'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'to listen to music', 'escuchar música'),
+((SELECT id FROM Lessons WHERE name = 'S02E13'), 'three weeks ago', 'hace tres semanas')
+;
+
+
 /*
 INSERT INTO Questions (lesson_id, question, answer)
 VALUES 

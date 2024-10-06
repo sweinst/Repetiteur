@@ -8,11 +8,10 @@ mod user_repositories {
     use common::models::NewUser;
     use common::repositories::load_async_db_connection;
     use common::repositories::users::UsersRepository;
-
-    use crate::utilities;
+    use crate::utilities::setup_test_data;
 
     fn before_all() {
-        utilities::setup_test_data();
+        setup_test_data();
     }
 
     #[tokio::test]
