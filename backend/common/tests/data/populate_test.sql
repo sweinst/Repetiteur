@@ -39,9 +39,11 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E08', 'Likes and dislikes'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E09', 'Accentuation'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E10', 'Christmas Edition'),
-((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E11', ' I only speak a little spanish'),
-((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E12', ' Numbers, months, days and seasons'),
-((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E13', ' Directions'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E11', 'I only speak a little spanish'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E12', 'Numbers, months, days and seasons'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E13', 'Directions'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E14', 'Places in town'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E15', 'Ordering drinks in a café'),
 
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
@@ -55,7 +57,9 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E10', 'Quiz'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E11', 'Talking about the future'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E12', 'Review of present tense verbs'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E13', 'Introducing the preterit tense')
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E13', 'Introducing the preterit tense'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E14', 'Preterite tense of -er and -ir verbs'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E15', 'Preterite tense of irregular verbs')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -403,6 +407,54 @@ VALUES
 
 INSERT INTO Questions (lesson_id, question, answer)
 VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E14'), 'mall', 'el centro commercial'),
+((SELECT id FROM Lessons WHERE name = 'S01E14'), 'bar', 'el bar'),
+((SELECT id FROM Lessons WHERE name = 'S01E14'), 'hospital', 'el hospital'),
+((SELECT id FROM Lessons WHERE name = 'S01E14'), 'cafeteria', 'la cafeteria'),
+((SELECT id FROM Lessons WHERE name = 'S01E14'), 'pharmacy', 'la farmacia'),
+((SELECT id FROM Lessons WHERE name = 'S01E14'), 'There''s a bar this way?', '¿Hay un bar por aquí?'),
+((SELECT id FROM Lessons WHERE name = 'S01E14'), 'in front from/opposite ', 'in frente de'),
+((SELECT id FROM Lessons WHERE name = 'S01E14'), 'close to', 'cerca de'),
+((SELECT id FROM Lessons WHERE name = 'S01E14'), 'far from', 'lejos de'),
+((SELECT id FROM Lessons WHERE name = 'S01E14'), 'In the city I live', 'En la ciudad vivo yo')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A white coffee, please', 'Un café con leche, por favor'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A black coffe (2 poss)', 'Un café solo
+Un café negro'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A coffee with a dash of milk', 'Un cortado'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A tea with milk', 'Un té con leche'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A tea with a slice of lemon', 'Un té con limón'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'An orange juice (psain/l.a.)', 'Un zumo de naranja (spain)
+Un jugo de naranja  (latin america)'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'An apple juice', 'Un zumo de manzana'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A pineapple juice', 'Un zumo de piña'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A still mineral water', 'Un agua mineral sin gas'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A sparkling water', 'Un agua mineral con gas'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A lemonade', 'Una limonada'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'red wine', 'vino tinto'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'white wine', 'vino blanco'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'a beer (regular & small)', 'Una cerveza
+Una caña (a small beer)'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'I want to', 'quiero'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'to want (present)', 'quiero
+quieres
+quiere
+queremos
+quereís
+quieren'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A coffee for me', 'Para mí, un café'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'A lemonade for my friend', 'Para mi amigo, una lemonada'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'Wife (2 poss.)', 'Mujer/Esposa'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'What do you want to drink?', '¿Que van a tomar?'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'Right away', 'Enseguida'),
+((SELECT id FROM Lessons WHERE name = 'S01E15'), 'Cheers!', '¡Salud!')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
 ((SELECT id FROM Lessons WHERE name = 'S02E01'), 'what have you done this week-end?', '¿Qué haces durante el fin de semana?'),
 ((SELECT id FROM Lessons WHERE name = 'S02E01'), 'Do you work in a restaurant? (formal)', '¿Usted trabaja en un restaurante?'),
 ((SELECT id FROM Lessons WHERE name = 'S02E01'), 'to work (present)', 'yo trabajo
@@ -511,8 +563,8 @@ comen'),
 
 INSERT INTO Questions (lesson_id, question, answer)
 VALUES 
-((SELECT id FROM Lessons WHERE name = 'S02E05'), ' We are going to the theater', 'Vamos al teatro'),
-((SELECT id FROM Lessons WHERE name = 'S02E05'), ' We are going partying (4 versions x 2)', 'vamos de juerga
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'We are going to the theater', 'Vamos al teatro'),
+((SELECT id FROM Lessons WHERE name = 'S02E05'), 'We are going partying (4 versions x 2)', 'vamos de juerga
 vamos de copas (binge)
 vamos de fiesta
 vamos de pachanga
@@ -871,6 +923,85 @@ cantaron'),
 ((SELECT id FROM Lessons WHERE name = 'S02E13'), 'three weeks ago', 'hace tres semanas')
 ;
 
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'to go up/to ascend', 'subir'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'comr (preterit)', 'comí
+comiste
+comió
+comimos
+comisteis
+comieron (fr: comiéron)'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'lunch', 'la comida'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'dinner', 'la cena'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'Using preterit tense', 'Something in the past which happened once'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'subir (preterit)', 'subí
+subiste
+subió
+subimos
+subisteis
+subieron'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'to open', 'abrir'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'I went', 'fui'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'friend', 'amigo'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'boyfriend/girlfriend', 'novio/novia'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'he drank a beer', 'bebío una cerveza'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'he didn''t suffer much', 'no sufrío mucho'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'they lived in Mexico', 'vivieron en Mexico'),
+((SELECT id FROM Lessons WHERE name = 'S02E14'), 'you (inf.) ran to the market', 'corriste al mercado')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'what did you do?', '¿qué hiciste?'),
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'hacer (preterit)', 'hice
+hiciste
+hizo
+hicimos
+hicisteis
+hicieron'),
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'What did you do with Antionio? We went to the cinema', 'Que hiciste con Antonio? Fuimos al cine.'),
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'ir/ser (preterit)', 'fui
+fuiste
+fue
+fuimos
+fuisteis
+fueron'),
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'What did you do with your wife? 
+We didn''t do much as my wife was ill. 
+But we watched a movie on TV', '¿Qué hiciste con tu esposa? 
+No hicimos mucho porque mi esposa esatba enferma.
+Pero vimos una película en la televisíon'),
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'ver (preterit)', 'vi
+viste
+vio
+vimos
+visteis
+vieron'),
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'dar (preterit)', 'di
+diste
+dio
+dimos
+disteis
+dieron'),
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'Did Antonio give you a present? 
+Yes, he gave me chocolate and flowers.', '¿Antonio te dio un regalo? 
+Sí, me dio chocolate y flores'),
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'estar (preterit)', 'estuve
+estuviste
+estuvo
+estuvimos
+estuvisteis
+estuvieron'),
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'romantic', 'romántico'),
+((SELECT id FROM Lessons WHERE name = 'S02E15'), 'prononciation -ca- -e- -ci- -co- -cu-', '-ca- as in cat
+-ce- th as in think
+-ci- th as in theater
+-co- c as in cottage
+-cu- c as in cook
+
+z always as th')
+;
 
 /*
 INSERT INTO Questions (lesson_id, question, answer)
