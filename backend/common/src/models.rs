@@ -124,6 +124,14 @@ pub struct Course {
     pub description: String,
 }
 
+/// This struct is used to insert a new course in the database.
+#[derive(Insertable, Debug)]
+#[diesel(table_name = courses)]
+pub struct NewCourse {
+    pub name: String,
+    pub description: String,
+}
+
 /// This struct is returned by the database when a lesson is queried.
 #[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
 #[diesel(belongs_to(Course))]

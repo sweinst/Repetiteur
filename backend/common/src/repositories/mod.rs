@@ -1,6 +1,7 @@
 use diesel::{Connection, PgConnection};
 use diesel_async::{AsyncConnection, AsyncPgConnection};
 pub mod users;
+pub mod courses;
 pub mod utils;
 
 /// Creates an asynchronous connection to the database
