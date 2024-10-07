@@ -14,12 +14,17 @@ impl CoursesRepository {
         conn: &mut AsyncPgConnection,
         user: &User,
     ) -> QueryResult<Vec<(Course, RoleCode)>> {
-        let mut courses = courseusers::table.into_boxed();
         // admins have access to all courses
-        if !user.is_admin {
-            courses = courses.filter(courseusers::user_id.eq(user.id));
+        if user.is_admin {
+            let courses = courses::table
+                .order_by(courses::name)
+                .load::<Course>(conn)
+                .await;
+            return courses.map(|c| c.into_iter().map(|c| (c, RoleCode::Admin)).collect());
         }
-        courses
+
+        courseusers::table
+            .filter(courseusers::user_id.eq(user.id))
             .inner_join(courses::table)
             .inner_join(roles::table)
             .order_by(courses::name)
