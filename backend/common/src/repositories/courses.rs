@@ -29,7 +29,7 @@ impl CoursesRepository {
             .inner_join(roles::table)
             .order_by(courses::name)
             .select((courses::all_columns, roles::code))
-            .load::<(Course, RoleCode)>(conn)
+            .load::<(Course,  RoleCode)>(conn)
             .await
     }
     /// Finds a course by its name
