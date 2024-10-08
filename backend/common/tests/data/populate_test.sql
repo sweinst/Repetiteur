@@ -44,6 +44,8 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E13', 'Directions'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E14', 'Places in town'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E15', 'Ordering drinks in a café'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E16', 'Ordering food in a café'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E17', 'Ordering food in a restaurant'),
 
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
@@ -59,7 +61,9 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E12', 'Review of present tense verbs'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E13', 'Introducing the preterit tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E14', 'Preterite tense of -er and -ir verbs'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E15', 'Preterite tense of irregular verbs')
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E15', 'Preterite tense of irregular verbs'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E16', 'Spelling changes in the preterit tense'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E17', 'Identity quiz')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -451,6 +455,72 @@ quieren'),
 ((SELECT id FROM Lessons WHERE name = 'S01E15'), 'What do you want to drink?', '¿Que van a tomar?'),
 ((SELECT id FROM Lessons WHERE name = 'S01E15'), 'Right away', 'Enseguida'),
 ((SELECT id FROM Lessons WHERE name = 'S01E15'), 'Cheers!', '¡Salud!')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'Another wine', 'Otro vino'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'Another limonade', 'Otra limonada'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'Another of the same (m./f.)', 'Otro de lo mismo/Otra de lo mismo'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'Can you eat here?', '¿Se puede comer aquí?'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'Bring us the menu, please (2 sol.)', 'Nos trae la carta por favor.
+Me trae la carta por favour.'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'The menu (spain, l.a.)', 'la carta (Spain)
+el menu (L. America)'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'A sandwich (spain, l.a.)', 'Un bocadillo (Spain)
+Un sandwich (L. America)'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'A ham sandwich', 'Un bocadillo de jamón'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'The cheese', 'el queso'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'A portion', 'Una ración'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'Do you want something else? (sing.,pl.)', '¿Quiere algo más?
+¿Quieren algo más?'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'Can you bring us more water, please?', '¿Nos trae más agua, por favor?'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'To study', 'Estudiar'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'Are you accompanied? (m./f.)', '¿Estàs acompañado?
+¿Estàs acompañada?'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'Do we know each other?', '¿Nos conocemos?'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'You''re not from here, are you?', '¿No eres de aquí, verdad?'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'You''re good looking (m./f.)', 'Eres guapo
+Eres guapa'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'I like your eyes', 'Me gustan tus ojos.'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'I love you', 'Te quiero'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'I want to spend all my life with you', 'Quiero pasar toda mi vida contigo')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'I''m hungry', 'Tengo hambre'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'I''m thirsty', 'Tengo sed'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Do you have a table?
+For how many people?
+For 4 people.', '¿Tiene una mesa?
+¿Para cuantas personas?
+Para cuatro (personas).'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Smokers or not smokers?', '¿Fumadores o no fumadores?'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Do you have a table for two?
+Yes, this way.', '¿Tiene una mesa para dos?
+Si, por aquí.'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'We''re closed', 'Hemos cerrado (haber)'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Sorry, we''re full. (2 sol.)', 'Lo siento, estamos llenos. 
+Lo siento, no temenos mesas. '),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'You have to wait.
+How long?', 'Hay que esperar
+¿Cuanto hay que esperar?'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), ' Can you bring a high chair for the baby?', '¿Nos trae una sillita por el bebe?'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Can you bring us a menu in English?', '¿Nos trae una carta en ingles?'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'I would like (2 sol.)', 'Quiero
+Quisiera'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'I would like this (pointing on the menu) (2 sol.)', 'Quiero esto.
+Quisiera esto.'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'What does this dish contain?', '¿Que lleva este plato?'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Tomato', 'el tomate'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Garlic', 'El ajo'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'What are they eating?', '¿Que estan comiendo, ellos?'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'What are you eating?', '¿Que estas comiendo?'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'I''m eating meat', 'Estoy comiendo carne'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'What are you recommending?', '¿Que me recomiendia?'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Word', 'la palabra'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Phrase', 'La frase')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -1001,6 +1071,158 @@ estuvieron'),
 -cu- c as in cook
 
 z always as th')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'ir/ser (preterit)', 'fui
+fuiste
+fue
+fuimos
+fuisteis
+fueron'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'pensar (present & preterit)', 'pensé
+pensaste
+pensó (stress)
+pensamos
+pensasteis
+pensaron
+
+pienso (stress)
+piensas
+piensa
+pensamos
+pensais
+piensan'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'to get up (preterit)', 'me levanté
+te levantaste
+se levantó
+nos levantamos
+os levantasteis
+se levantaron'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'to shower (preterit)', 'me duché
+te duchaste
+se duchó
+nos duchamos
+os duchasteis
+se ducharon'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'A what time, did you leave house?
+I left at half pass eight', '¿A qué horas saliste? 
+Salí a las ocho y media.'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'At what time, did you arrive at the university?
+I arrived at 10 o''clock.', '¿A que horas, llegaste a la universidad?
+Llegué a las dies.'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'I played at football', 'Jugué al futbal'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), ' to play (an instrument) (preterit)', 'toqué
+tcaste
+tocó
+tocamos
+tocasteis
+tocaron'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'I was born in 1963', 'naći en 1963'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'He died', 'murió'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'we like music', 'nos gusta la música'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'reflexive pronouns', 'me
+te
+se
+nos
+os
+se'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'to close (preterit/present)', 'cerré
+cerraste
+cerró
+cerramos
+cerrasteis
+cerraron
+
+cierro
+cierras
+cierra
+cerramos
+cerráis
+cierran 
+'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'to meet/find (preterit/present)', 'encontré
+encontraste
+encontró
+encontramos
+encontrasteis
+encantraron
+
+present:
+o -> ue'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'to return (preterit/present)', 'volví
+volviste
+volvió
+volvimos
+volvisteis
+volvieron
+
+present:
+vuelvo'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'to wake up (preterit/present)', 'me desperté
+te despertaste
+se despertó
+nos despertamos
+os despertasteis
+se despertaron
+
+present:
+me despierto'),
+((SELECT id FROM Lessons WHERE name = 'S02E16'), 'Ce fut la goutte qui fit déborder le vase', 'esa fue la gota que colmó el vaso')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'He was born in Austria in 1756', 'Nació en Austria en 1756'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'He played violin in a concert in Germany for the first time at the age of 6', 'Tocó violín en un concierto en Alemania por primera vez a la edad de seis años'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Holland / Netherlands', 'Holanda / Los Países Bajos'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'He wrote many very famous musical works ', 'Escribío muchas obras musicales muy conocidas'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'He died in Vienna en 1791 at the age of 35', 'Murío en Viena en 1791 a la edad de treinta y cinco años'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'He is one of the most known American artist', 'Es uno de los artistas estadounidenses más conocidos'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'His album "the stranger" won a first Grammy in 1977', 'Su albúm "the stranger" ganó un premio Grammy en 1977'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'to win/to earn', 'ganar'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'one of the most famous song of this record is "Just the way you are"', 'una de las canciones mas conocidas de este disco se llama "Just the way you are"'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'to come (preterit)', 'venir 
+
+vine
+viniste
+vino
+vinimos
+vinisteis
+vinieron
+'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'He came yesterday to see us', 'vino a vernos ayer'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'to say (preterit)', 'decir
+
+dije
+dijiste
+dijo
+dijimos
+dijisteis
+dijeron'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'to translate (preterit)', 'traducir
+
+traduje
+tradujiste
+tradujo
+tradujimos
+tradujisteis
+tradujeron'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'A road under repair', 'carretera en obras'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'the age', 'la edad'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), '(musical) work', 'una obra'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'a prize', 'un premio'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'chemistry', 'la química'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'she got married', 'casarse -> se casó'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'twin children', 'los hijos gemelos'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'the prime minister (m./f.)', 'el primer ministro/la primera ministra'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'to carry out/execute a role', 'ejercer un cargo'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'until', 'hasta'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'actor/actress', 'actor/actriz'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Greece', 'Grecia'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'to divorce', 'divorciarse'),
+((SELECT id FROM Lessons WHERE name = 'S02E17'), 'to fill to the brim/to overfill', 'colmar')
 ;
 
 /*
