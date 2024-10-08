@@ -6,7 +6,7 @@ mod utilities;
 #[cfg(test)]
 mod repositories {
     use crate::utilities::setup_test_data;
-    use common::models::NewUser;
+    use common::models::{NewUser, RoleCode};
     use common::repositories::courses::CoursesRepository;
     use common::repositories::load_async_db_connection;
     use common::repositories::users::UsersRepository;
@@ -74,6 +74,10 @@ mod repositories {
         assert!(courses.is_ok());
         let courses = courses.unwrap();
         assert!(courses.len() == 2);
+        assert!(courses[0].0.name == "Español 1");
+        assert!(courses[0].1 == RoleCode::Viewer);
+        assert!(courses[1].0.name == "Español 2");
+        assert!(courses[1].1 == RoleCode::Viewer);
 
         let user = UsersRepository::find_by_username(&mut conn, &"admin".to_string()).await;
         assert!(user.is_ok());
@@ -82,6 +86,10 @@ mod repositories {
         assert!(courses.is_ok());
         let courses = courses.unwrap();
         assert!(courses.len() == 2);
+        assert!(courses[0].0.name == "Español 1");
+        assert!(courses[0].1 == RoleCode::Admin);
+        assert!(courses[1].0.name == "Español 2");
+        assert!(courses[1].1 == RoleCode::Admin);
 
         let user = UsersRepository::find_by_username(&mut conn, &"jd".to_string()).await;
         assert!(user.is_ok());
@@ -90,5 +98,7 @@ mod repositories {
         assert!(courses.is_ok());
         let courses = courses.unwrap();
         assert!(courses.len() == 1);
+        assert!(courses[0].0.name == "Español 2");
+        assert!(courses[0].1 == RoleCode::Editor);
     }
 }

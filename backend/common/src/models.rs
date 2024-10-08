@@ -14,7 +14,7 @@ use std::str::FromStr;
 use uuid::Uuid;
 
 /// This enum is used to define the role of a user.
-#[derive(AsExpression, Debug, FromSqlRow)]
+#[derive(AsExpression, Debug, FromSqlRow, PartialEq)]
 #[diesel(sql_type=Text)]
 pub enum RoleCode {
     Admin,

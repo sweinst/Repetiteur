@@ -22,7 +22,7 @@ VALUES
 
 INSERT INTO CourseUsers (course_id, user_id, role_id)
 VALUES 
-((SELECT id FROM Courses WHERE name = 'Español 1'), (SELECT id FROM Users WHERE username = 'jd'), 2),
+((SELECT id FROM Courses WHERE name = 'Español 2'), (SELECT id FROM Users WHERE username = 'jd'), 2),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), (SELECT id FROM Users WHERE username = 'guest'), 1),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), (SELECT id FROM Users WHERE username = 'guest'), 1)
 ;
