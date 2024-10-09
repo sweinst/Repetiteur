@@ -41,8 +41,22 @@ impl UsersRepository {
             .await
     }
 
+    // TODO: add to course
+
     /// Deletes a user from the database
     pub async fn delete(c: &mut AsyncPgConnection, id: Uuid) -> QueryResult<usize> {
+        diesel::delete(userpreferences::table.filter(userpreferences::user_id.eq(id)))
+            .execute(c)
+            .await?;
+        diesel::delete(courseusers::table.filter(courseusers::user_id.eq(id)))
+            .execute(c)
+            .await?;
+        diesel::delete(questionhistory::table.filter(questionhistory::user_id.eq(id)))
+            .execute(c)
+            .await?;
+        diesel::delete(lessonhistory::table.filter(lessonhistory::user_id.eq(id)))
+            .execute(c)
+            .await?;
         diesel::delete(users::table.find(id)).execute(c).await
     }
 }

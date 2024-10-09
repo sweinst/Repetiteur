@@ -1,0 +1,3 @@
+- DB transactions
+- allows to add image(s) to a quesion
+- full question html support with editor
