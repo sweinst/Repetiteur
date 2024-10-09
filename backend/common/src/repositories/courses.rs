@@ -2,6 +2,8 @@ use crate::models::*;
 use crate::schema::*;
 use diesel::prelude::*;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
+use lessonhistory::lesson_id;
+use questions::question;
 use uuid::Uuid;
 
 /// Defines helpers for getting/setting course informtion in the database repository
@@ -29,7 +31,7 @@ impl CoursesRepository {
             .inner_join(roles::table)
             .order_by(courses::name)
             .select((courses::all_columns, roles::code))
-            .load::<(Course,  RoleCode)>(conn)
+            .load::<(Course, RoleCode)>(conn)
             .await
     }
     /// Finds a course by its name
@@ -58,9 +60,37 @@ impl CoursesRepository {
 
     /// Deletes a course from the database
     pub async fn delete(c: &mut AsyncPgConnection, id: Uuid) -> QueryResult<usize> {
-        // todo: delete all corresponmding lessons and questions
-        // todo: delete user association
-        // todo delete question and lesson history
+        // TODO: unit test for deletion
+        let lesson_ids = lessons::table
+            .filter(lessons::course_id.eq(id))
+            .select(lessons::id)
+            .load::<Uuid>(c)
+            .await?;
+        let question_ids = questions::table
+            .filter(questions::lesson_id.eq_any(&lesson_ids))
+            .select(questions::id)
+            .load::<Uuid>(c)
+            .await?;
+
+        diesel::delete(questionhistory::table)
+            .filter(questionhistory::question_id.eq_any(&question_ids))
+            .execute(c)
+            .await?;
+        diesel::delete(lessonhistory::table)
+            .filter(lessonhistory::lesson_id.eq_any(&lesson_ids))
+            .execute(c)
+            .await?;
+        diesel::delete(courseusers::table.filter(courseusers::course_id.eq(id)))
+            .execute(c)
+            .await?;
+        diesel::delete(questions::table)
+            .filter(questions::id.eq_any(&question_ids))
+            .execute(c)
+            .await?;
+        diesel::delete(lessons::table)
+            .filter(lessons::id.eq_any(&lesson_ids))
+            .execute(c)
+            .await?;
         diesel::delete(courses::table.find(id)).execute(c).await
     }
 }
