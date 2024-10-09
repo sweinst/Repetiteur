@@ -46,6 +46,8 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E15', 'Ordering drinks in a café'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E16', 'Ordering food in a café'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E17', 'Ordering food in a restaurant'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E18', 'Situations in a restaurant'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E19', 'Review of the unit'),
 
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
@@ -63,7 +65,9 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E14', 'Preterite tense of -er and -ir verbs'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E15', 'Preterite tense of irregular verbs'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E16', 'Spelling changes in the preterit tense'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E17', 'Identity quiz')
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E17', 'Identity quiz'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E18', 'Talking more about the past - the Imperfect tense'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E19', 'Describing the past')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -521,6 +525,42 @@ Quisiera esto.'),
 ((SELECT id FROM Lessons WHERE name = 'S02E17'), 'What are you recommending?', '¿Que me recomiendia?'),
 ((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Word', 'la palabra'),
 ((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Phrase', 'La frase')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'you are clever (m./f.)', 'Eres inteligente/Eres inteligente'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'Are you ready? (m./f.)', '¿Está listo?/¿Está lista?'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'I''m vegetarian (m./f.)', 'Soy vegetariano/Soy vegetariana'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'How/I eat', 'Cómo/Com'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'I don''t eat red meat', 'No como carne roja.'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'I don''t eat seafood', 'No como marisco'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'I don''t eat fish', 'No como pescado'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'I''m allergic to nuts', 'Soy alérgico a las nueces'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'I''m allergic to diary products', 'Soy alérgico a los productos lácteos'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'Enjoy your meal', '¡Que aproveche!'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'Bon appétit!', '¡Buen provecho!'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'It''s too cold', 'Esto está demasadio frio'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'It''s too hot', 'Esto está demasadio caliente'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'It''s too spicy', 'Esto está demasadio picante'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'It''s too burnt', 'Esto está demasadio quemado.'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'It''s terrific', 'Esto está buenísimo'),
+((SELECT id FROM Lessons WHERE name = 'S01E18'), 'I''m full/satified', 'Estoy satisfecho')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E19'), 'There is a cathedral named "La Sagrada Familia" and it''s very famous', 'Hay una catedral que se llama "la sagrada familia" y es muy famosa'),
+((SELECT id FROM Lessons WHERE name = 'S01E19'), ' Night club', 'La discoteca'),
+((SELECT id FROM Lessons WHERE name = 'S01E19'), 'The city centre', 'El centro de la ciudad'),
+((SELECT id FROM Lessons WHERE name = 'S01E19'), 'How can I help you?', '¿Cómo puedo ayudarle?'),
+((SELECT id FROM Lessons WHERE name = 'S01E19'), 'Take the second street on the right', 'Tome la segunda calle a la derecha'),
+((SELECT id FROM Lessons WHERE name = 'S01E19'), 'Right!', '¡Vale!'),
+((SELECT id FROM Lessons WHERE name = 'S01E19'), 'Is it quite close?', '¿Está bastante cerca?'),
+((SELECT id FROM Lessons WHERE name = 'S01E19'), 'Can you tell me where is the bank?', '¿Me sabe decir donde está el banco?'),
+((SELECT id FROM Lessons WHERE name = 'S01E19'), 'You''re welcome', 'De nada'),
+((SELECT id FROM Lessons WHERE name = 'S01E19'), 'Can you show me where the cathedral is on this map?', '¿Me puede indicar donde está la cathedral en este plano?'),
+((SELECT id FROM Lessons WHERE name = 'S01E19'), 'It''s not far', 'No esta lejos')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -1223,6 +1263,104 @@ tradujeron'),
 ((SELECT id FROM Lessons WHERE name = 'S02E17'), 'Greece', 'Grecia'),
 ((SELECT id FROM Lessons WHERE name = 'S02E17'), 'to divorce', 'divorciarse'),
 ((SELECT id FROM Lessons WHERE name = 'S02E17'), 'to fill to the brim/to overfill', 'colmar')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E18'), 'use of imperfect', 'was/were doing something
+used to do something
+would do something (past)'),
+((SELECT id FROM Lessons WHERE name = 'S02E18'), 'cantar (imperfect)', 'cantaba
+cantabas
+cantaba
+cantábamos
+cantabais
+cantaban
+'),
+((SELECT id FROM Lessons WHERE name = 'S02E18'), 'to dance (imperfect)', 'bailaba
+bailabas
+bailaba
+bailábamos
+bailabais
+bailaban'),
+((SELECT id FROM Lessons WHERE name = 'S02E18'), 'they used to speak', 'hablaban'),
+((SELECT id FROM Lessons WHERE name = 'S02E18'), 'to practise (imperfect)', 'praticaba
+praticabas
+praticaba
+praticábamos
+praticabais
+praticaban'),
+((SELECT id FROM Lessons WHERE name = 'S02E18'), 'shark', 'el tiburón'),
+((SELECT id FROM Lessons WHERE name = 'S02E18'), 'ray (fish)', 'la raya')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'to sell (imperfect)', 'vender
+
+vendía 
+vendías 
+vendía
+vendíamos
+vendíais
+vendían'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'I was eating', 'comía'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'I was drinking a coffee', 'bebía un café'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'I was taking a coffee', 'tomaba un café́. (tomar)'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'to live (imperfect)', 'vivir
+
+vivía
+vivías
+vivía
+vivíamos
+vivíais
+vivían'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'ir (imperfect)', 'ir
+
+iba
+ibas
+iba
+ibamos
+íbais
+iban'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'ser (imperfect)', 'ser
+
+era
+eras
+era
+éramos
+érais
+eran'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'ver (imperfect)', 'ver
+
+veía
+veías
+veía
+veíamos
+veíais
+veían'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'it was difficult', 'era dificil'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'it was two o''clock', 'eran las dos'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'it was noon', 'era mediodía'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'to open (imperfect)', 'abrir
+
+abría
+abrías
+abría
+abríamos
+abríais
+abrían'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'estar (imperfect)', 'estar
+
+estaba
+estabas
+estaba
+estábamos
+estabais
+estaban'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'he was wearing a blue jacket', 'llevaba una chaqueta azul'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'he was very happy', 'estaba muy contento'),
+((SELECT id FROM Lessons WHERE name = 'S02E19'), 'after so much work we were tired', 'Después de tanto trabajo estábamos cansados')
 ;
 
 /*
