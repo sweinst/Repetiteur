@@ -2,8 +2,6 @@ use crate::models::*;
 use crate::schema::*;
 use diesel::prelude::*;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
-use lessonhistory::lesson_id;
-use questions::question;
 use uuid::Uuid;
 
 /// Defines helpers for getting/setting course informtion in the database repository
@@ -56,6 +54,30 @@ impl CoursesRepository {
             .values(new_course)
             .get_result::<Course>(c)
             .await
+    }
+
+    /// Gets all lessons and questions for a course
+    pub async fn get(
+        c: &mut AsyncPgConnection,
+        course_uuid: Uuid,
+    ) -> QueryResult<Vec<(Lesson, Vec<Question>)>> {
+        let lessons = lessons::table
+            .filter(lessons::course_id.eq(course_uuid))
+            .select(Lesson::as_select())
+            .load::<Lesson>(c)
+            .await?;
+        let questions = Question::belonging_to(&lessons)
+            .select(Question::as_select())
+            .load(c)
+            .await?;
+
+        let questions = questions
+            .grouped_by(&lessons)
+            .into_iter()
+            .zip(lessons)
+            .map(|(questions, lesson)| (lesson, questions))
+            .collect::<Vec<(Lesson, Vec<Question>)>>();
+        Ok(questions)
     }
 
     /// Deletes a course from the database
