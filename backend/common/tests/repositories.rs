@@ -73,7 +73,7 @@ mod repositories {
 
         let prefs = UsersRepository::get_preferences(&mut conn, &user.id).await;
         assert!(prefs.is_ok());
-        let prefs = prefs.unwrap();
+        let mut prefs = prefs.unwrap();
         assert_eq!(
             prefs,
             UserPreferences {
@@ -82,6 +82,23 @@ mod repositories {
                 number_of_successes_to_pass: 5,
                 proportion_of_failed_questions: 25,
                 proportion_of_old_questions: 5,
+            }
+        );
+
+        prefs.number_of_questions_per_session = 100;
+        prefs.proportion_of_old_questions = 10;
+        let _ = UsersRepository::update_preferences(&mut conn, &prefs).await;
+        let prefs = UsersRepository::get_preferences(&mut conn, &user.id).await;
+        assert!(prefs.is_ok());
+        let prefs = prefs.unwrap();
+        assert_eq!(
+            prefs,
+            UserPreferences {
+                user_id: user.id,
+                number_of_questions_per_session: 100,
+                number_of_successes_to_pass: 5,
+                proportion_of_failed_questions: 25,
+                proportion_of_old_questions: 10,
             }
         );
 
