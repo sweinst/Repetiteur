@@ -14,6 +14,19 @@ VALUES
 ('jd', 'john@doe.com', '$argon2id$v=19$m=19456,t=2,p=1$jI4o6MadRdwMuNQJjheD3A$FYnd+aQw5DbQ6StPkZbiNaqzMxf58v7ufyOSnnO/+vE;', FALSE)
 ;
 
+INSERT INTO UserPreferences (
+     user_id, 
+     number_of_questions_per_session, 
+     number_of_successes_to_pass, 
+     proportion_of_failed_questions,
+     proportion_of_old_questions
+) 
+VALUES 
+((SELECT id FROM Users WHERE username = 'guest'), 50, 5, 25, 25),
+((SELECT id FROM Users WHERE username = 'admin'), 50, 5, 25, 25),
+((SELECT id FROM Users WHERE username = 'jd'), 50, 5, 25, 25)
+;
+
 INSERT INTO Courses (name, description)
 VALUES 
 ('Español 1', 'Spanish Level 1'),

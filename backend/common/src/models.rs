@@ -103,11 +103,11 @@ pub struct NewUser {
 }
 
 /// This struct is used for storing user preferences in the database.
-#[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations)]
+#[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations, PartialEq)]
 #[diesel(belongs_to(User))]
 #[diesel(primary_key(user_id))]
 #[diesel(table_name = userpreferences)]
-pub struct Userpreference {
+pub struct UserPreferences {
     pub user_id: Uuid,
     pub number_of_questions_per_session: i32,
     pub number_of_successes_to_pass: i32,

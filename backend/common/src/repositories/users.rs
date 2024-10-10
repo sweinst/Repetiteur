@@ -35,10 +35,44 @@ impl UsersRepository {
 
     /// Creates a new user in the database
     pub async fn create(c: &mut AsyncPgConnection, new_user: NewUser) -> QueryResult<User> {
-        diesel::insert_into(users::table)
+        let user = diesel::insert_into(users::table)
             .values(new_user)
             .get_result::<User>(c)
+            .await?;
+        let _ = diesel::insert_into(userpreferences::table)
+            .values(UserPreferences {
+                user_id: user.id,
+                number_of_questions_per_session: 50,
+                number_of_successes_to_pass: 5,
+                proportion_of_failed_questions: 25,
+                proportion_of_old_questions: 5,
+            })
+            .execute(c)
+            .await?;
+        Ok(user)
+    }
+
+    /// gets a user preferences
+    pub async fn get_preferences(
+        c: &mut AsyncPgConnection,
+        id: &Uuid,
+    ) -> QueryResult<UserPreferences> {
+        userpreferences::table
+            .filter(userpreferences::user_id.eq(id))
+            .get_result(c)
             .await
+    }
+
+    pub async fn update_preferences(
+        c: &mut AsyncPgConnection,
+        preferences: &UserPreferences,
+    ) -> QueryResult<UserPreferences> {
+        diesel::update(
+            userpreferences::table.filter(userpreferences::user_id.eq(preferences.user_id)),
+        )
+        .set(preferences)
+        .get_result(c)
+        .await
     }
 
     // TODO: add to course

@@ -6,7 +6,7 @@ mod utilities;
 #[cfg(test)]
 mod repositories {
     use crate::utilities::setup_test_data;
-    use common::models::{NewUser, RoleCode};
+    use common::models::{NewUser, RoleCode, UserPreferences};
     use common::repositories::courses::CoursesRepository;
     use common::repositories::load_async_db_connection;
     use common::repositories::users::UsersRepository;
@@ -37,6 +37,19 @@ mod repositories {
         assert!(guest2.is_ok());
         let guest2 = guest2.unwrap();
         assert!(guest2.username == "guest");
+        let prefs = UsersRepository::get_preferences(&mut conn, &guest.id).await;
+        assert!(prefs.is_ok());
+        let prefs = prefs.unwrap();
+        assert_eq!(
+            prefs,
+            UserPreferences {
+                user_id: guest.id,
+                number_of_questions_per_session: 50,
+                number_of_successes_to_pass: 5,
+                proportion_of_failed_questions: 25,
+                proportion_of_old_questions: 25,
+            }
+        );
     }
 
     #[tokio::test]
@@ -57,10 +70,28 @@ mod repositories {
         assert!(user.password == "password");
         assert!(user.email == "my_email.com");
         assert!(user.is_admin == false);
+
+        let prefs = UsersRepository::get_preferences(&mut conn, &user.id).await;
+        assert!(prefs.is_ok());
+        let prefs = prefs.unwrap();
+        assert_eq!(
+            prefs,
+            UserPreferences {
+                user_id: user.id,
+                number_of_questions_per_session: 50,
+                number_of_successes_to_pass: 5,
+                proportion_of_failed_questions: 25,
+                proportion_of_old_questions: 5,
+            }
+        );
+
+        let uid = user.id.clone();
         let deleted = UsersRepository::delete(&mut conn, user.id).await;
         assert!(deleted.is_ok());
         let user = UsersRepository::find_by_username(&mut conn, &"new_user".to_string()).await;
         assert!(user.is_err());
+        let prefs = UsersRepository::get_preferences(&mut conn, &uid).await;
+        assert!(prefs.is_err());
     }
 
     #[tokio::test]
