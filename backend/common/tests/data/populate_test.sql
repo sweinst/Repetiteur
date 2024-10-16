@@ -63,6 +63,8 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E19', 'Review of the unit'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E20', 'Cultural programme in a Spanish restaurant'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E21', 'Weather'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E22', 'Hotels and accommodations'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E23', 'Problems in a hotel '),
 
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
@@ -84,7 +86,9 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E18', 'Talking more about the past - the Imperfect tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E19', 'Describing the past'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E20', 'End-of-unit test'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E21', 'Using "for" in Spanish')
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E21', 'Using "for" in Spanish'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E22', 'Expressing purpose using para'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E23', 'Various uses of por')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -631,6 +635,81 @@ hacen'),
 ((SELECT id FROM Lessons WHERE name = 'S01E21'), 'Tomorrow, it''s going to snow', 'Mañana, va a nevar'),
 ((SELECT id FROM Lessons WHERE name = 'S01E21'), 'Tomorrow, it''s going to be sunny', 'Mañana, va a hacer sol'),
 ((SELECT id FROM Lessons WHERE name = 'S01E21'), 'What is the weather be tommorow?', '¿Que tiempo va a hacer mañana?')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'How are you today?', '¿Como estás hoy?'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'I''m happy/satisfied', 'Estoy contento'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'We have a reservation', 'Tenemos una reserva'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'a room (spain/l. a.)', 'una habitación
+un cuarto (l.a.)'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'Do you have a room? (2 sol.)', 'Quisiera una habitación
+¿Tiene usted una habitación?'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'A double room with a double bed', 'una habitación doble con una cama de matrimonio'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'A twin room', 'una habitación doble con dos camas'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'A room with bath', 'una habitación con baño'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'A single room', 'una habitación individual'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'A room with a shower', 'una habitación con ducha'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'A room with view on the sea', 'una habitación con vistas al mar'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'A room with view on the mountain', 'una habitación con vistas a la montaña'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'For how many nights? 
+For one night. 
+For 2 nights. 
+For a week. 
+For two weeks', '¿para cuenta noches?
+para una noche
+para dos noches
+para una semana
+para dos semanas'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'See you next week', 'Para la semana que viene'),
+((SELECT id FROM Lessons WHERE name = 'S01E22'), 'How much is it for a night? 
+per person?', '¿Cuanto cuesta por noche?
+Por persona.')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'There is a problem with the room', 'Hay un problema con la habitación'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'a program', 'un programa'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'a telegram', 'un telegrama'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'the room is too small', 'la habitación es demasadio pequeña'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'the room is too noisy', 'la habitación es demasadio ruidosa'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'the room is too expensive', 'la habitación es demasadio cara '),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'the room is dirty', 'la habitación está sucia'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'the room is clean', 'la habitación está limpia '),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'the room is too cold', 'hace demasadio frio en la habitación'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'the room is too hot', 'hace demasadio calor en la habitación'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'The shower doesn''t work', 'La ducha no funciona'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'The TV doesn''t work', 'La televisión no funciona'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'The air conditioning doesn''t work', 'El aire acondicionado no funciona'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'I can''t open the window', 'No puedo abrir la ventana'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'To can (present)', 'poder 
+
+puedo
+puedes
+puede
+podemos
+podeís
+pueden'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'I can''t switch on the light', 'No puedo encender la luz'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'I can''t switch on the TV', 'No puedo encender la television'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'I can''t access internet', 'No puedo acceder a internet'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'There is no toilet paper', 'Hay no papel higiénico'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'There is no towels', 'No hay toallas'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'There is no hot water', 'No hay agua caliente'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'to smell (present)', 'oler
+
+huelo
+hueles
+huele
+olemos
+oléis
+huelen'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'The room smells bad', 'La habitación huele mal'),
+((SELECT id FROM Lessons WHERE name = 'S01E23'), 'I''d like to check out (3 sol.)', 'Me gustaría hacer el check-out
+Me gustaría dejar la habitación
+Me gustaría pagar')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -1504,6 +1583,75 @@ the destination you are heading to
 in exchange for
 - ¿Queries cambiar el CD por tu libro?
 - voy a comprar la casa for 150,000 euros.')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'I''m here for helping you', 'estoy aquí para ayudarte'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'I''m here for learning Spanish', 'Estoy aquí/lista para apprender español'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'you''re going to a party for seeing your friends', 'vas a una fiesta para ver a tus amigos'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'I''m going to a party for eating and drinking', 'voy a una fiesta para comer y beber'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'for celebrating (2 sol.)', 'para celebrar/festejar'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'for giving a present to my friend', 'para dar un regalo a mi amigo'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'to meet new friends', 'para conocer a nuevos amigos'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'Why do you go to the party?', '¿Por qué vas a la fiesta?'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'I''m going to the party because I want to see my friend', 'Voy a la fiesta porque quiero ver a un amigo'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'Why do you go to the party? (what is the purpose)', '¿Para qué vas a la fiesta?'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'to give a present to someone (2 sol.)', 'dar un regalo a alguien
+ragalar'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), ' I got a book (as present)', 'me regalaron un libro'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'My mother gave me a book', 'mi madre me regaló un libro'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'Happy birthday!', '¡Feliz cumpleaños!'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'Joyeux anniversaire. 
+Joyeux anniversaire. 
+We wish you all .. happy birthday', '¡cumpleaños feliz !
+¡cumpleaños feliz !
+¡te deseamos todos!
+¡cumpleaños feliz !'),
+((SELECT id FROM Lessons WHERE name = 'S02E22'), 'May you have many more (birthdays)!', '¡Que cumplas muchos más!')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'uses of for', 'gracias por (exchange)
+cambiar tu CD por mi libro (exchange)
+por la noche (time)
+por avión (sending by)
+por aquí (around)
+por el túnel (along, through)
+por mi amigo (on behalf of)'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'tomorrow morning', 'mañana por la mañana'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'I go to the market in the morning ', 'voy al mercado por la mañana'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'In the afternoon, I go to the swimming pool', 'por la tarde, voy a la piscina'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'during the night, I sleep', 'por la noche, duermo'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'We send this letter by plane/I travel by plane', 'Enviamos esta carta por avión/viajo en avión'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'I go by feet', 'voy a pie'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'by plane/by train/by boat/by mail/by email/by fax', 'por avión
+por tren
+por barco
+por correo
+por correo electrónico/por email
+por fax'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'to talk by phone', 'hablar por teléfono'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'Is there a bank around here?', '¿Hay un banco por aquí?'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'I walk along the street', 'camino por la calle'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'through the mountains', 'por las montanas'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'We walk along the beaches for the holidays', 'caminamos por las playas durent las vacaciones'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'through a tunnel', 'por un túnel'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'Around here/over there', 'Por aquí/por allí.'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'Everywhere', 'por todas partes'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'Our students from all around the world', 'Nuestros alumnos por todas partes del mundo'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'He has travelled all around the world', 'ha viajado por todo el mundo'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'I do it for you', 'lo hago por tí'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'I do it out of love', 'lo hago por amor'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'I sing for my friend (on behalf of, because he can''t sing now)', 'canto por mi amigo'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'I''m going to sing a song for Antonio (on behalf)
+I''m going to sing a song for Antonio (for)', 'voy a cantar una canción por Antonio
+voy a cantar una canción para Antonio'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'I''m going to buy a present on behalf of my father
+I''m going to buy a present for my father', 'voy a comprar un regalo por mi padre
+voy a comprar un regalo para mi padre'),
+((SELECT id FROM Lessons WHERE name = 'S02E23'), 'For me, a coffee', 'Para mí, un café́.')
 ;
 
 /*
