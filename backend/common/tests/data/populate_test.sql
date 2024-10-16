@@ -61,6 +61,8 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E17', 'Ordering food in a restaurant'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E18', 'Situations in a restaurant'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E19', 'Review of the unit'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E20', 'Cultural programme in a Spanish restaurant'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E21', 'Weather'),
 
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
@@ -80,7 +82,9 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E16', 'Spelling changes in the preterit tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E17', 'Identity quiz'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E18', 'Talking more about the past - the Imperfect tense'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E19', 'Describing the past')
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E19', 'Describing the past'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E20', 'End-of-unit test'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E21', 'Using "for" in Spanish')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -574,6 +578,59 @@ VALUES
 ((SELECT id FROM Lessons WHERE name = 'S01E19'), 'You''re welcome', 'De nada'),
 ((SELECT id FROM Lessons WHERE name = 'S01E19'), 'Can you show me where the cathedral is on this map?', '¿Me puede indicar donde está la cathedral en este plano?'),
 ((SELECT id FROM Lessons WHERE name = 'S01E19'), 'It''s not far', 'No esta lejos')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'Me too', 'yo tambien'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'Let''s go', 'vámonos'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'The city centre', 'El centro de la ciudad'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'How can I help you?', '¿Cómo puedo ayudarle?'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'Of course!', '¡Claro!'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'Please follow me', 'Quieren seguirme'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'I fancy a glass of red wine', 'Me apetece un vaso de tinto'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'bread', 'el pan'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'Are you ready to order? (m./f./pl.)', '¿Esta listo para pedir?
+¿Esta lista para pedir?
+¿Esta listos para pedir?'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'I have a few questions.', 'Tengo algunas preguntas'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'Is this dish contains meat?', '¿Este plato lleva carne?'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'Mushroom croquettes', 'las croquetas de champiñones'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'Poor man potatoes', 'patatas a lo pobre'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'Spanish omelette', 'La tortilla española'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'It''s very tasty', 'Está riquissimo'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'a dessert', 'Un postre'),
+((SELECT id FROM Lessons WHERE name = 'S01E20'), 'Meatballs in garlic sauce', 'Albondigas')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'Are you ready? 
+Of course, I am!
+Of course no!', '¿Estas listo?
+¡Claro que si!
+¡Claro que no!'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'It''s sunny', 'Hace sol'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'What''s the weather like today?', '¿Qué tiempo hace hoy?'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'to do/to make (present)', 'hacer
+
+hago
+haces
+hace
+hacemos
+haceis
+hacen'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'It''s windy', 'hace viento'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'it''s cold', 'hace frio'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'it''s hot', 'hace calor'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'the weather is good', 'hace buen tiempo'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'the weather is bad', 'hace mal tiempo'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'it''s raining', 'llueve'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'it''s snowing', 'nieva'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'Tomorrow, it''s going to rain', 'Mañana, va a llover'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'Tomorrow, it''s going to snow', 'Mañana, va a nevar'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'Tomorrow, it''s going to be sunny', 'Mañana, va a hacer sol'),
+((SELECT id FROM Lessons WHERE name = 'S01E21'), 'What is the weather be tommorow?', '¿Que tiempo va a hacer mañana?')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -1374,6 +1431,79 @@ estaban'),
 ((SELECT id FROM Lessons WHERE name = 'S02E19'), 'he was wearing a blue jacket', 'llevaba una chaqueta azul'),
 ((SELECT id FROM Lessons WHERE name = 'S02E19'), 'he was very happy', 'estaba muy contento'),
 ((SELECT id FROM Lessons WHERE name = 'S02E19'), 'after so much work we were tired', 'Después de tanto trabajo estábamos cansados')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'we are going to travel to Mexico', 'vamos a viajar a México'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'you (pl) go to dance all night long', 'vais a bailar toda la noche'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'we''re eating paella every day', 'comos paella todos los días'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'Are you opening the windows?', '¿Abris la ventana?'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'to open (present)', 'abrir
+
+abro
+abres
+abre
+abrimos
+abrís
+abren'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'Are they writing a letter to their mother?', '¿Escriben una carta a su madre?'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'I''m singing/I sang. He''s singing/He sang', 'canto/cantó
+canta/canté'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'we live in Zaragoza but we are going to go to Córdoba during the holidays', 'vivimos en Zaragoza pero vamos a ir a Córdoba durante las vacaciones '),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'we were dancing with our friends when Jorge arrived, he said to us hello. 
+But he was not very happy, so he left.', 'bailábamos con nuestros amigos, cuándo llegó Jorge, nos dijo "hola". 
+Pero no estaba muy contento, así que salió'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'last year we went to Venezuela and we saw lots (of things)', 'el año pasado fuimos a Venezuela y vimos muchas cosas '),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'we went for a run/drive in the car', 'dimos una vuelta en coche'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'the two children were born in 1998', 'los dos niños nacieron en 1998'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'when I was young I played/used to play the guitar', 'cuando era joven tocaba la guitarra'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'before you used to get up early, but now you get up late', 'antes te levantabas temprano, pero ahora te levantas tarde'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'I open the door', 'Abro la puerta'),
+((SELECT id FROM Lessons WHERE name = 'S02E20'), 'when we were children we spoke/used to speak French with our grandmother, but she died in 1984 and afterwards it was more difficult', 'cuando éramos niños hablábamos francés con nuestra abuela, pero murió en 1984 y después era más difícil')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'What have you done during these holydays?
+I went to a concert with Antonio', '¿Que hiciste durante las vacaciones?
+Fui a un concierto con Antonio'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'What movie did you watch?', '¿Qué película visteis?'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'What was the weather? (2 poss.). 
+It was sunny but it wasn''t very warm. 
+At least it didn''t rain.', '¿Qué tal el tiempo?
+¿Qué tempio hacía?
+hacía sol pero no hacía mucho calor
+Por lo menos no llovía'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'We went to a party, my friend (f.) was celebrating her birthday', 'fui a une fiesta - mi amiga celebraba su cumpleaños'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'What present did you give her? 
+I give her a book and a bracelet', '¿Qué le diste como regalo?
+Le di un libro y una pulsera'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'this present is for you (give sthg to someone, destination)', 'este regalo es para tí.'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'This house is for Marta (give sthg to someone, destination)', 'esta case es para Marta'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'This card is for you (pl. f.) (give sthg to someone, destination)', 'esta carta es para vosostras'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'I''m leaving for France (the destination you are heading off to, destination)', 'salgo para Francia'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'This afternoon, I''m leaving for Madrid (the destination you are heading off to, destination)', 'Esta tarde, salgo para Madrid'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'Thanks for the present (exchange thanks)', 'gracias por el regalo'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'Do you want to exchange my CD with your book?', '¿Quieres cambiar mi CD por tu libro?'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'I''m going to buy the house for 150,000 euros (exchange).', 'Voy a comprar la casa por 150,000 euros.'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'we''re heading for Venezuela tomorrow', 'salimos para Venezuela mañana'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'yesterday they set off for England ', 'ayer salieron para Inglaterra '),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'I''m (ex)changing $200 for £100', ''),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'when I was young I used to set off for Spain in July', 'cuando era joven salía para España en julio '),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'we went off to the disco at eleven', 'fuimos para la discoteca a las once'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'thank you for the present you gave me', 'gracias por el regalo que me diste'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'Uses of para', 'to give something to someone (the destination is)
+- esta carta es para vosotros
+- este regalo es para ti
+the destination you are heading to
+- salgo para Francia
+- este tarde salgo para Madrid'),
+((SELECT id FROM Lessons WHERE name = 'S02E21'), 'Uses of por', 'Thank you for
+- gracias por la musica
+in exchange for
+- ¿Queries cambiar el CD por tu libro?
+- voy a comprar la casa for 150,000 euros.')
 ;
 
 /*
