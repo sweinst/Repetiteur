@@ -64,7 +64,9 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E20', 'Cultural programme in a Spanish restaurant'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E21', 'Weather'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E22', 'Hotels and accommodations'),
-((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E23', 'Problems in a hotel '),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E23', 'Problems in a hotel'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E24', 'The alphabet and staying at a campsite'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E25', 'Shopping'),
 
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
@@ -88,7 +90,9 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E20', 'End-of-unit test'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E21', 'Using "for" in Spanish'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E22', 'Expressing purpose using para'),
-((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E23', 'Various uses of por')
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E23', 'Various uses of por'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E24', 'Introducing the perfect tense'),
+((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E25', 'When to use the perfect tense and irregular verbs')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
@@ -711,6 +715,91 @@ huelen'),
 Me gustaría dejar la habitación
 Me gustaría pagar')
 ;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'a, b, c, ch, d', 'a (a)
+b (be)
+c (ce)
+ch (che) you have to write it now: ce hache (tze)
+d (de)'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'e, f, g, h, i', 'e (e)
+f (efe)
+g (ge) (rre)
+h (hache) (hatche)
+I (I)'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'j, k, l, ll, m', 'j (jota)
+k (ka)
+l (ele)
+ll (elle) since the 2010 reform, it must be written : ele ele
+m (eme)'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'n, ñ, o, p, q', 'n (ene)
+ñ (eñe)
+o (o)
+p (pe)
+q (qu)'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'r, s, t, u, v', 'r (ere)  (erre)
+s (ese)
+t (te)
+u (u)
+v (uve)'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'w, x, y, z', 'w (uve doble)
+x (equis)
+y (I griega)  ou ye (since the 2010 reform)
+z (ceta)'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'Is there a campsite around here?', '¿Hay un un camping por aquí?'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'to camp', 'acampar'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'a tent (sp, l.a.)', 'una tienda
+una carpa (l. a.)'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'Is it possible to camp here?', '¿Se puede acampar aquí?'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'Is it possible to drink water?', '¿Se puide beber el agua?'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'Can I rent a towel?', '¿Se puede alquilar una toalla?'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'Where are the showers?', '¿Donde estan las duchas?'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'Where are the toilets?', '¿Donde estan los servicios?'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'Where are the displosal areas/bins?', '¿Donde estan los cubos de la basura?'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'rubbish, trash, garbage', 'la basura'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'Where one can buy milk?', '¿Donde se puede comprar leche?'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'caravan/trailer', 'la caravana'),
+((SELECT id FROM Lessons WHERE name = 'S01E24'), 'the supermarket', 'el supermercado')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'Can I help you?', '¿En qué puedo ayudarle?'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'I''m just looking', 'solo estoy mirando'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'Do you want it? (m./f.)', '¿lo/la quiere?'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'I''m not sure (m./f.)', 'No estoy seguro/segura'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'I''ll come back later', 'vuelvo mas tarde'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'I''ll take it!', '¡Me lo llevo!'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'How much does it cost?', '¿Cuánto cuesta?'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'Can I pay by credit card?', '¿Puedo pagar con tarjeta de crédito?'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'Can I see an ID?? (2 sol.)', '¿Puede ver su DNI? (Documento Nacional de Identitad)
+¿Puede ver su pasaporte?'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'Here you go', 'Aqui tiene'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'A hat', 'Un sombrero'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'A receipt', 'Un recibo'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'A bag', 'Un bolsa'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'Can you give me a bag', '¿Me puede dar una bolsa?'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'Can I try this on, please?', '¿Puedo probarme esto, por favor?'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'to try (on) (present)', 'probar(se)
+
+me pruebo
+te pruebas
+se prueba
+nos probamos
+os probáis
+se prueban'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'where are the changing/fitting rooms?', '¿Donde estan los probadores?'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'It fits me', 'Me queda bien'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'Does it fit me?. 
+Yes, it fits you', '¿Me queda bien?
+Si le queda bien.'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'It''s too big', 'Es demasadio grande'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'It''s too small', 'Es demasadio pequeña'),
+((SELECT id FROM Lessons WHERE name = 'S01E25'), 'bag vs. handbag', 'una bolsa
+un bolso')
+;
+
 
 INSERT INTO Questions (lesson_id, question, answer)
 VALUES 
@@ -1652,6 +1741,63 @@ voy a cantar una canción para Antonio'),
 I''m going to buy a present for my father', 'voy a comprar un regalo por mi padre
 voy a comprar un regalo para mi padre'),
 ((SELECT id FROM Lessons WHERE name = 'S02E23'), 'For me, a coffee', 'Para mí, un café́.')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E24'), 'perfect tense usage', 'have done sthg'),
+((SELECT id FROM Lessons WHERE name = 'S02E24'), 'past participle', 'hablar -> hablado
+comer -> comido
+vivir -> vivido'),
+((SELECT id FROM Lessons WHERE name = 'S02E24'), 'haber (present)', 'he
+has
+ha
+hemos
+habéis
+han'),
+((SELECT id FROM Lessons WHERE name = 'S02E24'), 'you have bought a house', 'has comprado una case'),
+((SELECT id FROM Lessons WHERE name = 'S02E24'), 'Miguel has bought a house', 'Miguel ha comprado una casa'),
+((SELECT id FROM Lessons WHERE name = 'S02E24'), 'he has lived in Spain', 'ha vivido en España'),
+((SELECT id FROM Lessons WHERE name = 'S02E24'), 'What have you done today?', '¿Qué has hecho hoy?'),
+((SELECT id FROM Lessons WHERE name = 'S02E24'), 'I''ve played with my two sons', 'he jugado con mis dos hijos'),
+((SELECT id FROM Lessons WHERE name = 'S02E24'), 'I have prepared some materials for the podcast', 'he preparado algunos materiales para el podcast')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'using the perfect tense', 'has done sthg
+Immediate past: ayer, esta mañana, anoche, esta tarde, la semana pasade
+ya/already'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'you have drunk a glass of wine', 'Has bebido una copa de vino'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I have drunk a glass of water', 'He bebido un vaso de agua'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'this morning, I sang a song', 'Esta mañana, he cantado una canción'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'yesterday, I ate paella', 'Ayer, he comido paella'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'last night, I went out with my friend', 'anoche, he salido con mis amigos'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'last week, we visited Madrid', 'la semana pasado, hemos visitado Madrid'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'two week ago, you began the course', 'hace dos semanas, has empezado el curso'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'Have you already eaten?', '¿Ya has comido?'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'Have you dinner?', '¿Ya has cenado?'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I have already drunk a glass of water', 'Ya he bebido un vaso de agua'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I have already visited Spain', 'Ya he visitado España'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'past participle open/close', 'abierto/cerrado'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I have open the window', 'he abierto la ventana'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'have you said?', '¿Has dicho..?'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'Have I said it well?(decir)', '¿Lo he dicho bien?'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'We have already written the letter (escribir)', 'Ya hemos escrito la carta'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I have done my home works (hacer)', 'he hecho mis deberes'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I have seen the film (ver)', 'he visto la película'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'this morning, we saw the monument', 'Esta mañana, hemos visto el monumento'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'Sergio and Montse have drunk all the water', 'Sergio y Montse han bebido todo el agua'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'We have lived in Asturia', 'Hemos vivido an Asturia'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I''ve not finished yet', 'tovadia no he terminado'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I have spoken with Miguel this morning', 'he hablado con Miguel dos veces esta mañana'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I''ve gone to the supermarket (ir)', 'He ido al supermercado'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I''ve read a good book (leer)', 'He leido un buen libro'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'the dog died this morning (morir)', 'el perro ha muerto esta mañana'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'he has put the book sur la table (poner)', 'He puesto el libro en la mesa'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'The car has broken down (romper)', 'El coche se ha roto'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'I''ve been a teacher but now I''m an interpret (ser)', 'He sido profesor pero ahora soy interprete'),
+((SELECT id FROM Lessons WHERE name = 'S02E25'), 'They returned from France this afternoon (volver)', 'han vuelto de Francia esta tarde')
 ;
 
 /*
