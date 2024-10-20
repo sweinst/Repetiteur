@@ -69,6 +69,10 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E25', 'Shopping'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E26', 'At the market in Spain'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E27', 'Exchanging currency'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E28', 'Aches and pain'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E29', 'At he pharmacy or doctor'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E30', 'At a UEFA Cup Final in Glasgow'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E31', 'On a flight to Spain'),
 
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
@@ -848,6 +852,116 @@ VALUES
 ((SELECT id FROM Lessons WHERE name = 'S01E27'), 'ATM', 'cajero (automático)'),
 ((SELECT id FROM Lessons WHERE name = 'S01E27'), 'The ATM has kept my card', 'El cajero se ha tragrado mi tarjeta'),
 ((SELECT id FROM Lessons WHERE name = 'S01E27'), 'to swallow', 'tragarse')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'I''m not well', 'no estoy bien'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'I feel well', 'Me siento bien'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'I''m well', 'Estoy bien'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'to feel (present)', 'sentir
+
+siento
+sientes
+siente
+sentimos
+sentis
+sienten'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'I don''t feel well. I''m ill', 'No me siento bien. Estoy enfermo'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'to hurt (present)', 'doler
+
+duelo
+dueles
+duele
+dolemos
+doléis
+duelen'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'Where does it hurt you?', '¿Donde le duele?'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'I have a sore head', 'Me duele la cabeza'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'I have a stomach ache', 'Me duele el estómago'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'Sore throat (2 sol.)', 'un dolor de garganta
+me duele la garganta'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'the leg(s)', 'la(s) pierna(s)'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'the arm(s)', 'el(los) brazo(s)'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'My arms are sore', 'Me duelen los brazos'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'eye', 'el ojo'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'nose', 'la nariz'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'ear', 'la oreja'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'shoulder', 'el hombro'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'foot(feet)', 'el pie
+los pies'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'mouth', 'la boca'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'hand', 'la mano'),
+((SELECT id FROM Lessons WHERE name = 'S01E28'), 'neck', 'el cuello')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'I have a headache (2 sol.)', 'Me duelle la cabesa
+Tengo dolor de la cabesa'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'Do you have something for headaches?', '¿Tiene algo para el dolor de cabesa?'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'cough', 'la tos'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'infection', 'una infección'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'a rash', 'un sapurllido'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'a sunburn', 'una quemadura de sol'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'to burn', 'quemar'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'Do you have something for sunburns?', '¿Tiene algo para una quemadura de sol?'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'I''m dizzy', 'Estoy mareado'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'I can''t sleep', 'No puedo dormir.'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'to sleep (present)', 'dormir
+
+duermo
+duermes
+duerme
+dormimos
+dormis
+duermen'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'to breath', 'respirar'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'a pill (2 sol.)', 'una píldora
+un comprimido'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'cream', 'la crema'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'You need to take the pills three times a day before eating', 'Necesita tomar estas piladoras tres veces al dia antes de comer'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'you need to put this cream twice a day', 'Necesita poner esta crema dos veces al dia'),
+((SELECT id FROM Lessons WHERE name = 'S01E29'), 'after eating', 'después comer')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'A football game', 'el partido de fútbol'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'Who is going to win this afternoon?', '¿Que van a ganar esta tardes?'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'more or less', 'más o menos'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'three to zero', 'tres a cero'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'to win', 'ganar'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'champion (s./pl.)', 'el campeón/campeones'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'Is it your first time in Scotland? (pl. informal)', 'esta la primara vez que estaís en Escocia?'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'Yes, it''s the first time we come in Scotland', 'Si, esta la primera vez que hemos venido a Escocia'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'The people are very nice', 'La gente son muy amable'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'Come on!', '¡Venga!'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'goal', 'gol'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'The referee is an amateur', 'El arbitro es casero'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'Is the football very important in Spain?', '¿Es muy importante el futbol en España?'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'Is the most important sport the same as in the UK', 'Is the most important sport the same as in the UK'),
+((SELECT id FROM Lessons WHERE name = 'S01E30'), 'Which are the most important teams?', '¿Cuáles son los equipos mas importantes?')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'to stop', 'parar'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'the bus stop', 'La parade de autobuses'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'A glass of beer', 'una caña'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'café noisette', 'un cortado'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'bring us the bill please?', '¿Nos trae la cuenta por favor?'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'A tobaconist', 'El estanco'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'A stamp', 'sello'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'postcards', 'tarjetas postales'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'How can I help you? (sing./plural)', '¿En que puedo aydarles?
+¿En que puedo servirles?'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'you''re welcome', 'de nada
+no hay de que'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'Hi (abbrev.)', '¡Buenas!'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'something', 'algo'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'Thank you very much', 'Muchas gracias'),
+((SELECT id FROM Lessons WHERE name = 'S01E31'), 'Thank you very very much', 'muchisimas gracias')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)
