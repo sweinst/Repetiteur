@@ -73,6 +73,13 @@ VALUES
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E29', 'At he pharmacy or doctor'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E30', 'At a UEFA Cup Final in Glasgow'),
 ((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E31', 'On a flight to Spain'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E33', 'Checking in to a hotel'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E34', 'Ordering breakfast'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E35', 'At the tourist information office'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E36', 'Shopping'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E37', 'Public transport'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E38', 'Seeking help at the pharmacy'),
+((SELECT id FROM Courses WHERE name = 'Español 1'), 'S01E40', 'Learning languages'),
 
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E01', 'The present tense'),
 ((SELECT id FROM Courses WHERE name = 'Español 2'), 'S02E02', 'More on the present tense'),
@@ -962,6 +969,149 @@ no hay de que'),
 ((SELECT id FROM Lessons WHERE name = 'S01E31'), 'something', 'algo'),
 ((SELECT id FROM Lessons WHERE name = 'S01E31'), 'Thank you very much', 'Muchas gracias'),
 ((SELECT id FROM Lessons WHERE name = 'S01E31'), 'Thank you very very much', 'muchisimas gracias')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'star', 'la estrella'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'welcome (m/f)', 'Bienvenido/Bienvenida'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'can you give me your passport? (sing./pl.)', '¿Me pueden dar sus pasaportes?
+¿Pueden darme sus pasaportes?'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'to be wrong/to make a mistake', 'equivocarse'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'I have made a mistake', 'me he equivocado'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'What a coincidence!', '¡Que casualidad!'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'in the name of', 'a nombre de'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'do you prefer view on the sea or view on the mountain?', '¿Prefiere usted vistas al mar o vistas a la montaña ?'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'There is a supplement to pay', 'hay que pagar un suplemento'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'has the rooms with a view on the mountain a supplement?', '¿Las habitationes con vistas a la montaña no tienein suplemento?'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), '40 euros is quite a lot!', '¡Cuaranta euros son muchos!'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'A form', 'una ficha'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'The rooms are on the third floor', 'Las habitaciones son en el tercer piso'),
+((SELECT id FROM Lessons WHERE name = 'S01E33'), 'a lift', 'el ascensor')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E34'), 'the breakfast', 'El desayuno'),
+((SELECT id FROM Lessons WHERE name = 'S01E34'), 'to have breakfast', 'desayunar'),
+((SELECT id FROM Lessons WHERE name = 'S01E34'), 'Do you want to have breakfast on the terrace or inside?', '¿Quiere desayunar en la terraza o dentro?'),
+((SELECT id FROM Lessons WHERE name = 'S01E34'), 'Excuse me', 'disculpar
+disculpen'),
+((SELECT id FROM Lessons WHERE name = 'S01E34'), 'My english is very bad', 'Mi ingles es muy malo'),
+((SELECT id FROM Lessons WHERE name = 'S01E34'), 'Where are you from?(sing./pl.)', '¿De donde es usted?
+¿De donde son ustedes?'),
+((SELECT id FROM Lessons WHERE name = 'S01E34'), 'I''m here for a business trip', 'Estoy aqui de viaje de negocios'),
+((SELECT id FROM Lessons WHERE name = 'S01E34'), 'What do you do for a living?', '¿En que trabaja?'),
+((SELECT id FROM Lessons WHERE name = 'S01E34'), 'A journalist', 'un periodista'),
+((SELECT id FROM Lessons WHERE name = 'S01E34'), 'toasted bread', 'pan tostado')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'We need information about the town', 'Necesitamos alguna información sobre la ciudad'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'about (subject or about)', 'sobre'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'a map (2 sol.)', 'un mapa
+un plano'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'I show you what is of interest on the map', 'Le enseño lo que hay de interés en el mapa'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'beside/next to', 'al lado de'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'large shell', 'una caracola'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'sea scape', 'la marina'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'Is it open today?', '¿Esta abierto hoy?'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'It''s closed', 'Esta cerrado'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'It''s open from Wednesday to Saturday', 'Esta abierto de miércoles a sábado'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'How much cost the entry? 
+You don''t have to pay, It''s free', '¿Cuanto cuesta la entrada? 
+No hay que pagar, es gratuito'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'Where are the best restaurants?', '¿Donde estan los mejores restaurantes?'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'Can you recommend a restaurant', '¿Puede recomendar un restaurante?'),
+((SELECT id FROM Lessons WHERE name = 'S01E35'), 'It doesn''t matter/never mind', 'No importa')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'Great Britain', 'Gran Bretaña'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'There are there beside the magazines', 'Están allí al lado de las revistas'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'envelope', 'el sobre'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'is that all?', '¿eso es todo?'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'I need also stamp.', 'Necesito también sellos'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'Do you need something else?', '¿Necesita algo más?'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'Your change is four euros', 'Su vuelta es de cuatro euros.'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'Have a nice day.', 'Que tengas un buen día'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'If you need anything (pl.), tell me', 'Si necesitan algo, me lo dice'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'My mother would like to try these shoes', 'Mi madre quisiera probarse estos zapatos'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'I''m going to have a look', 'voy a ver'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'A little moment', 'un momentito'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'How much do they cost? (2 sol.)', '¿Cuanto valen?
+¿Cuanto cuestan?'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'She''ll take them, I''ll take them', 'Se los lleva
+Me los llevo'),
+((SELECT id FROM Lessons WHERE name = 'S01E36'), 'Could accompany me to the till?', '¿Quiere acompañarme a la caja?')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'How are you (formal)? All is well? Yes, everything is fine', '¿Como esta usted? ¿Todo bien? Si, todo esta muy bien'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'Is there a supermarket open on Sunday', '¿Hay algo un supermercado abierto el domingo?'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'Here, there''s nothing', 'Aqui no hay nada.'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'the timetable', 'el horario'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'It''s 5 minutes away in car', 'Esta a cinco minutos en coche'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'It''s at 10 kms', 'Esta a dies kilometros'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'The autobus pass every 2 hours', 'Los autobuses pasan cada dos horas'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'There is one which leaves the bus station at 6pm', 'Hay uno que sale de la estación de autobuses a las seis'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'Is it very far from here? 
+No, it''s 5 minutes away by feet.', '¿Esta muy lejos de aqui? 
+No, esta a cinco minutos caminando'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'to walk', 'caminar'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'look!', '¡Mire!'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'turn right (2 sol.)', 'gire a la derecha
+doble a la derecha'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'go straight forward for about 200m', 'Sigua todo recto unos dos cientos metros.'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'What time it is? It''s half pass 5', '¿Que hora es? Son la cinco y media'),
+((SELECT id FROM Lessons WHERE name = 'S01E37'), 'You''re on time', 'Va en tempio')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'the face', 'la cara'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'My friend (f.) doesn''t feel well', 'Mi amiga no se siente bien'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'What is the problem?', '¿Cual es el problema?'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'She feels a little dizzy', 'Se siente un poco mareada'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'I see', 'Ya veo'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'For how many days have you feel like this?', '¿se siente así desde hace cuantos dias ?'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'Can you repeat?', '¿Puede repetir?'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'Have you eaten something unusual?', 'Ha comido algo differente de lo normal?'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'an octopus', 'el pulpo'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'I don''t know', 'No lo se'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'a reaction', 'una reacción'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'to sunbathe', 'tomar sol'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'pregnant', 'embarazada'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'to swim', 'nadar'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'It''s nothing serious', 'No es nada grave'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'I''ve been studying Spanish for two years', 'Estudio español desde hace dos años'),
+((SELECT id FROM Lessons WHERE name = 'S01E38'), 'I''ve been speaking to Migual for one hour', 'Hablo con Miguel desde hace una hora')
+;
+
+INSERT INTO Questions (lesson_id, question, answer)
+VALUES 
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'What languages do you speak?', '¿Que idiomas hablas?'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'I''m Spanish so I speak Spanish', 'Soy español asi que hablo español'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'Did you study at school?', '¿Estudiaste en el colegio?'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'to speak an other language? (2 answers)', '¿hablas/parlas otro idomia?'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'school/primary school', 'el colegio'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'secondary school', 'El instituto'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'It''s mandatory to study English', 'Es obligatorio estudiar Ingles'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'At what age, do you begin to study a foreign language here in Spain?', '¿A que edad (f.), se empieza estudiar un idioma aqui en España?'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'to begin/start (present)', 'empezar
+
+empiezo
+empiezas
+empieza
+empezamos
+empezáis
+empiezan'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'When I was little, 20 years ago', 'Cuando yo era pequeno, hace veinte años'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'galician, basque, catalan, valecian. balearic', 'gallego, vasco, catalán, valeciano, balear'),
+((SELECT id FROM Lessons WHERE name = 'S01E40'), 'Arabic, russian', 'arabe, ruso')
 ;
 
 INSERT INTO Questions (lesson_id, question, answer)

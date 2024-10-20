@@ -65,7 +65,7 @@ mod course_repository {
         assert!(course_contents.is_ok());
         let course_contents = course_contents.unwrap();
         //still adding new lessons
-        assert!(course_contents.len() >= 19);
+        assert!(course_contents.len() >= 30);
 
         assert!(course_contents[0].0.name == "S01E01");
         assert!(course_contents[0].0.description == "Saying how you are feeling");
