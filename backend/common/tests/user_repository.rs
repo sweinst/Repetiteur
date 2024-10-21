@@ -65,7 +65,8 @@ mod user_repository {
         assert!(user.is_ok());
         let user = user.unwrap();
         assert!(user.username == "new_user");
-        assert!(user.password == "password");
+        let password_check = common::auth::check_password(&"password".to_string(), &user.password);
+        assert!(password_check.is_ok());
         assert!(user.email == "my_email.com");
         assert!(user.is_admin == false);
 

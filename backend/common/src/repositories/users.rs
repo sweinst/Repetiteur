@@ -65,8 +65,8 @@ impl UsersRepository {
         email: Option<&String>,
         is_admin: Option<&bool>,
     ) -> QueryResult<usize> {
-        // a simpler approach should be to use "into_boxed"
-        // and conditionally add the fields to the update
+        // a better approach should be to use "into_boxed"
+        // and conditionally add the fields to update
         // but I wasn't able to make it work for an asynchronous connection
         let mut user = user.clone();
         if let Some(new_username) = new_username {
