@@ -1,4 +1,4 @@
-use clap::{arg, Arg, Command};
+use clap::{arg, Command};
 use commands::UserCommands;
 use dotenvy::dotenv;
 
@@ -18,21 +18,21 @@ async fn main() {
                     Command::new("create")
                         .about("Create a new user")
                         .arg_required_else_help(true)
-                        .arg(Arg::new("username").required(true))
-                        .arg(Arg::new("password").required(true))
-                        .arg(Arg::new("email").required(true))
+                        .arg(arg!([username] "The user name").required(true))
+                        .arg(arg!([password] "The user password").required(true))
+                        .arg(arg!([email] "The user email" ).required(true))
                         .arg(arg!(-a --admin "Make the user an admin")),
                 )
                 .subcommand(
                     Command::new("list")
                         .about("List existing users")
-                        .arg(arg!([filter] "a regex for matching substrings in user names ")),
+                        .arg(arg!([filter] "A case-insensitive regex for matching substrings in user names ")),
                 )
                 .subcommand(
                     Command::new("delete")
                         .about("Delete user by ID")
                         .arg_required_else_help(true)
-                        .arg(Arg::new("id").required(true)),
+                        .arg(arg!([id] "The user uuid").required(true)),
                 ),
         )
         .get_matches();

@@ -1,3 +1,6 @@
 - DB transactions
-- allows to add image(s) to a quesion
-- full question html support with editor
+- allows to add image(s) to questions
+- full html support for viewing/editing questions
+- Backend
+  - use GraphQL? or JSON+WebSocket?
+  - Unit tests for CLI
