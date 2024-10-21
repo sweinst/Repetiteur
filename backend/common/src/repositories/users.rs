@@ -4,7 +4,7 @@ use diesel::prelude::*;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 use uuid::Uuid;
 
-/// Defines helpers for getting/setting user informtion in the database repository
+/// Defines helpers for getting/setting user information in the database repository
 /// Allows to list, find, create and delete users
 pub struct UsersRepository {}
 

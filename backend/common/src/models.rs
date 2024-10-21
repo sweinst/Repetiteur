@@ -80,13 +80,16 @@ pub struct Role {
 }
 
 /// This struct is returned by the database when a user is queried.
-#[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset)]
+#[derive(
+    Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Serialize, Deserialize,
+)]
 #[diesel(table_name = users)]
 #[diesel(check_for_backend(Pg))]
 pub struct User {
     pub id: Uuid,
     pub username: String,
     pub email: String,
+    #[serde(skip_serializing)]
     pub password: String,
     pub is_admin: bool,
     pub created: NaiveDateTime,
@@ -103,7 +106,9 @@ pub struct NewUser {
 }
 
 /// This struct is used for storing user preferences in the database.
-#[derive(Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations, PartialEq)]
+#[derive(
+    Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Associations, PartialEq,
+)]
 #[diesel(belongs_to(User))]
 #[diesel(primary_key(user_id))]
 #[diesel(table_name = userpreferences)]
