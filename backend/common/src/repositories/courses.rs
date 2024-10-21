@@ -4,12 +4,12 @@ use diesel::prelude::*;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 use uuid::Uuid;
 
-/// Defines helpers for getting/setting course informtion in the database repository
+/// Defines helpers for getting/setting course information in the database repository
 /// Allows to list, find, create and delete courses
 pub struct CoursesRepository {}
 
 impl CoursesRepository {
-    // list all courses accessible to aspecific user
+    // list all courses accessible to a specific user
     pub async fn list(
         conn: &mut AsyncPgConnection,
         user: &User,

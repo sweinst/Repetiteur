@@ -32,7 +32,7 @@ async fn main() {
                         .arg(arg!(-p --password <password> "The optional new user password"))
                         .arg(arg!(-e --email <email> "The optional new user email" ))
                         .arg(arg!(-a --admin <bool> "Optional: make the user an admin?")
-                        .value_parser(clap::builder::BoolishValueParser::new())),
+                            .value_parser(clap::builder::BoolishValueParser::new())),
                 )
                 .subcommand(
                     Command::new("list")
