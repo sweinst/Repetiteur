@@ -24,6 +24,17 @@ async fn main() {
                         .arg(arg!(-a --admin "Make the user an admin")),
                 )
                 .subcommand(
+                    Command::new("update")
+                        .about("Update an existing user")
+                        .arg_required_else_help(true)
+                        .arg(arg!([username] "The user name").required(true))
+                        .arg(arg!(-u --new_username <username> "The optional new user name"))
+                        .arg(arg!(-p --password <password> "The optional new user password"))
+                        .arg(arg!(-e --email <email> "The optional new user email" ))
+                        .arg(arg!(-a --admin <bool> "Optional: make the user an admin?")
+                        .value_parser(clap::builder::BoolishValueParser::new())),
+                )
+                .subcommand(
                     Command::new("list")
                         .about("List existing users")
                         .arg(arg!([filter] "A case-insensitive regex for matching substrings in user names ")),
@@ -44,6 +55,16 @@ async fn main() {
                     &sub_matches.get_one::<String>("password").unwrap(),
                     &sub_matches.get_one::<String>("email").unwrap(),
                     sub_matches.get_flag("admin"),
+                )
+                .await;
+            }
+            Some(("update", sub_matches)) => {
+                UserCommands::update(
+                    &sub_matches.get_one::<String>("username").unwrap(),
+                    sub_matches.get_one::<String>("new_username"),
+                    sub_matches.get_one::<String>("password"),
+                    sub_matches.get_one::<String>("email"),
+                    sub_matches.get_one::<bool>("admin"),
                 )
                 .await;
             }

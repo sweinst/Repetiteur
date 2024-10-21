@@ -81,7 +81,15 @@ pub struct Role {
 
 /// This struct is returned by the database when a user is queried.
 #[derive(
-    Queryable, Selectable, Debug, Identifiable, Insertable, AsChangeset, Serialize, Deserialize,
+    Queryable,
+    Selectable,
+    Debug,
+    Identifiable,
+    Insertable,
+    AsChangeset,
+    Serialize,
+    Deserialize,
+    Clone,
 )]
 #[diesel(table_name = users)]
 #[diesel(check_for_backend(Pg))]

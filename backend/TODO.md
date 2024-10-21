@@ -4,3 +4,4 @@
 - Backend
   - use GraphQL? or JSON+WebSocket?
   - Unit tests for CLI
+  - CLI: handle errors more softly than panicking...

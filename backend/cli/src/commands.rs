@@ -44,6 +44,24 @@ impl UserCommands {
         dump_results(&user);
     }
 
+    pub async fn update(
+        username: &String,
+        new_username: Option<&String>,
+        password: Option<&String>,
+        email: Option<&String>,
+        is_admin: Option<&bool>,
+    ) {
+        let mut c = load_async_db_connection().await;
+        let user = users::UsersRepository::find_by_username(&mut c, username)
+            .await
+            .unwrap();
+        let res =
+            users::UsersRepository::update(&mut c, &user, new_username, password, email, is_admin)
+                .await
+                .unwrap();
+        dump_results(&res);
+    }
+
     pub async fn delete(id: &String) {
         let mut c = load_async_db_connection().await;
         let id = Uuid::parse_str(&id).unwrap();

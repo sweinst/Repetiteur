@@ -35,6 +35,11 @@ impl UsersRepository {
 
     /// Creates a new user in the database
     pub async fn create(c: &mut AsyncPgConnection, new_user: NewUser) -> QueryResult<User> {
+        let password_hash = crate::auth::hash_password(&new_user.password).unwrap();
+        let new_user = NewUser {
+            password: password_hash,
+            ..new_user
+        };
         let user = diesel::insert_into(users::table)
             .values(new_user)
             .get_result::<User>(c)
@@ -50,6 +55,37 @@ impl UsersRepository {
             .execute(c)
             .await?;
         Ok(user)
+    }
+
+    pub async fn update(
+        c: &mut AsyncPgConnection,
+        user: &User,
+        new_username: Option<&String>,
+        password: Option<&String>,
+        email: Option<&String>,
+        is_admin: Option<&bool>,
+    ) -> QueryResult<usize> {
+        // a simpler approach should be to use "into_boxed"
+        // and conditionally add the fields to the update
+        // but I wasn't able to make it work for an asynchronous connection
+        let mut user = user.clone();
+        if let Some(new_username) = new_username {
+            user.username = new_username.clone();
+        }
+        if let Some(password) = password {
+            user.password = crate::auth::hash_password(&password).unwrap();
+        }
+        if let Some(email) = email {
+            user.email = email.clone();
+        }
+        if let Some(is_admin) = is_admin {
+            user.is_admin = *is_admin;
+        }
+        let res = diesel::update(users::table.find(user.id))
+            .set(&user)
+            .execute(c)
+            .await?;
+        Ok(res)
     }
 
     /// gets a user preferences
