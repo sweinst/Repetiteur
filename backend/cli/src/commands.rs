@@ -14,6 +14,7 @@ fn dump_results<T: Serialize>(value: &T) {
 pub struct UserCommands {}
 
 impl UserCommands {
+    /// Lists all users in the database. Filtering can be done by providing a regex.
     pub async fn list(filter: Option<&String>) {
         let mut c = load_async_db_connection().await;
         let mut users = users::UsersRepository::list(&mut c).await.unwrap();
@@ -28,6 +29,7 @@ impl UserCommands {
         dump_results(&users);
     }
 
+    /// Creates a new user in the database.
     pub async fn create(username: &String, password: &String, email: &String, is_admin: bool) {
         let password = common::auth::hash_password(&password.to_string()).unwrap();
         let mut c = load_async_db_connection().await;
@@ -44,6 +46,7 @@ impl UserCommands {
         dump_results(&user);
     }
 
+    /// Updates an existing user in the database.
     pub async fn update(
         username: &String,
         new_username: Option<&String>,
@@ -55,13 +58,22 @@ impl UserCommands {
         let user = users::UsersRepository::find_by_username(&mut c, username)
             .await
             .unwrap();
-        let res =
+        let n_updates =
             users::UsersRepository::update(&mut c, &user, new_username, password, email, is_admin)
                 .await
                 .unwrap();
-        dump_results(&res);
+        let user_name = match new_username {
+            Some(new_username) => new_username.clone(),
+            None => user.username.clone(),
+        };
+        println!("Updated {} user(s)", n_updates);
+        let user = users::UsersRepository::find_by_username(&mut c, &user_name)
+            .await
+            .unwrap();
+        dump_results(&user);
     }
 
+    //// Deletes a user by its ID.
     pub async fn delete(id: &String) {
         let mut c = load_async_db_connection().await;
         let id = Uuid::parse_str(&id).unwrap();
