@@ -3,12 +3,15 @@ resolver = "2"
 members = ["common", "cli", "service"]
 
 [workspace.dependencies]
-tokio = { version = "1", features = ["full"] }
+chrono = { version = "0.4", features = ["serde"] }
+clap = "4.5"
+# diesel versions required by rocket-db-pool 0.2.X
+diesel = { version = "2.1", features = ["postgres", "uuid", "chrono"] }
+diesel-async = { version = "0.4", features = ["postgres"] }
+dotenvy = "0.15"
+regex = "1.11"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-chrono = { version = "0.4", features = ["serde"] }
+tokio = { version = "1", features = ["full"] }
 uuid = { version = "1", features = ["v4", "serde"] }
-dotenvy = "0.15"
-clap = "4.5"
 test-env-helpers = "0.2.2"
-regex = "1.11"

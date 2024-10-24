@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-diesel = { version = "2.2", features = ["postgres", "uuid", "chrono"] }
-diesel-async = { version = "0.5", features = ["postgres"] }
+diesel = { workspace = true }
+diesel-async = { workspace = true }
 argon2 = "0.5"
 rand = "0.8"
 dotenvy = { workspace = true }
