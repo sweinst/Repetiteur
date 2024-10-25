@@ -7,7 +7,6 @@ use rocket::serde::json::{json, Value};
 use rocket::Request;
 use rocket_db_pools::deadpool_redis::redis::AsyncCommands;
 use rocket_db_pools::Connection;
-use serde::{Deserialize, Serialize};
 use std::error::Error;
 use uuid::Uuid;
 
