@@ -1,4 +1,4 @@
-use crate::routes::{server_error, CacheConn, DbConn};
+use crate::routes::{server_error, CacheConn, DbConn, RocketUser};
 use common::auth::{authorize_user, Credentials};
 use common::repositories::users::UsersRepository;
 use rocket::http::Status;
@@ -40,10 +40,7 @@ pub async fn login(
     }))
 }
 
-/* #[rocket::get("/me")]
-use common::models::User;
-
-pub fn me(user: User) -> Value {
-    json!(user)
+#[rocket::get("/me")]
+pub fn me(user: RocketUser) -> Value {
+    json!(user.0)
 }
- */
