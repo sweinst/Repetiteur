@@ -15,7 +15,10 @@ pub async fn login(
 ) -> Result<Value, Custom<Value>> {
     let user = UsersRepository::find_by_username(&mut db, &credentials.username)
         .await
-        .map_err(|e| server_error(e.into()))?;
+        .map_err(|e| {
+            rocket::error!("Error finding user '{}' ({})", credentials.username, e);
+            return Custom(Status::Unauthorized, json!("Wrong credentials"));
+        })?;
 
     let session_id = authorize_user(&user, credentials.into_inner())
         .map_err(|_| Custom(Status::Unauthorized, json!("Wrong credentials")))?;
@@ -28,7 +31,7 @@ pub async fn login(
             // value
             user.id.to_string(),
             // expiration time in seconds
-            3 * 60 * 60,
+            12 * 60 * 60,
         )
         .await
         .map_err(|e| server_error(e.into()))?;
