@@ -10,7 +10,7 @@ use rocket_db_pools::Connection;
 #[rocket::post("/login", format = "json", data = "<credentials>")]
 pub async fn login(
     mut db: Connection<DbConn>,
-    //mut cache: Connection<CacheConn>,
+    mut cache: Connection<CacheConn>,
     credentials: Json<Credentials>,
 ) -> Result<Value, Custom<Value>> {
     let user = UsersRepository::find_by_username(&mut db, &credentials.username)
@@ -21,7 +21,6 @@ pub async fn login(
         .map_err(|_| Custom(Status::Unauthorized, json!("Wrong credentials")))?;
     // cache it in Redis
     // TODO: set the value with JSON format
-    /*
     cache
         .set_ex::<String, String, ()>(
             // key
@@ -33,7 +32,6 @@ pub async fn login(
         )
         .await
         .map_err(|e| server_error(e.into()))?;
-    */
     Ok(json!({
         "token": session_id,
     }))
