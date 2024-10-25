@@ -16,7 +16,9 @@ async fn main() {
      */
     let _ = rocket::build()
         .mount("/", rocket::routes![routes::users::sample_main,])
+        // creates a connection pool for the Redis database
         .attach(routes::CacheConn::init())
+        // creates a connection pool for the PostgreSQL database
         .attach(routes::DbConn::init())
         .launch()
         .await;
