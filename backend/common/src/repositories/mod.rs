@@ -1,7 +1,7 @@
 use diesel::{Connection, PgConnection};
 use diesel_async::{AsyncConnection, AsyncPgConnection};
-pub mod users;
 pub mod courses;
+pub mod users;
 pub mod utils;
 
 /// Creates an asynchronous connection to the database
@@ -22,3 +22,4 @@ pub fn load_db_connection() -> PgConnection {
     PgConnection::establish(&database_url)
         .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
 }
+

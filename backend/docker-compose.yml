@@ -18,6 +18,10 @@ services:
 
   redis:
     image: redis:latest
+    ports:
+      # Expose the database on the host machine on port 6379
+      # for dev puposes only
+      - "6379:6379"
 
   repetiteur:
     build: .
