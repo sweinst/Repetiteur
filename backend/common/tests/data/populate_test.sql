@@ -1,3 +1,7 @@
+-----------------------------------------------------------------------------
+-- Test data
+-----------------------------------------------------------------------------
+
 DELETE FROM UserPreferences;
 DELETE FROM LessonHistory;
 DELETE FROM QuestionHistory;
@@ -9,9 +13,12 @@ DELETE FROM Users;
 
 INSERT INTO Users (username, email, password, is_admin)
 VALUES 
-('guest', 'guest@doe.com', '$argon2id$v=19$m=19456,t=2,p=1$jI4o6MadRdwMuNQJjheD3A$FYnd+aQw5DbQ6StPkZbiNaqzMxf58v7ufyOSnnO/+vE;', FALSE),
-('admin', 'guest@doe.com', '$argon2id$v=19$m=19456,t=2,p=1$jI4o6MadRdwMuNQJjheD3A$FYnd+aQw5DbQ6StPkZbiNaqzMxf58v7ufyOSnnO/+vE;', TRUE),
-('jd', 'john@doe.com', '$argon2id$v=19$m=19456,t=2,p=1$jI4o6MadRdwMuNQJjheD3A$FYnd+aQw5DbQ6StPkZbiNaqzMxf58v7ufyOSnnO/+vE;', FALSE)
+-- password: guest
+('guest', 'guest@doe.com', '$argon2id$v=19$m=19456,t=2,p=1$BMAIx0ZjhLTPZjfmFqioHg$2ZkO6nPlj4EoRX2EEiQVLDS8EmDPUN0Kelpt1m3I/Tk', FALSE),
+-- password: admin
+('admin', 'admin@doe.com', '$argon2id$v=19$m=19456,t=2,p=1$GgIDxonBF8k6gS896045iA$QS8jVq7c43m8b7jFo8pM0O7/MD85lQzB6i/WMww+hto', TRUE),
+-- password: password
+('jd', 'john@doe.com', '$argon2id$v=19$m=19456,t=2,p=1$b/6QO12TKUxossnuuD768w$n3bXxeyDPAzpI6MIO14oXCjObj2XWD+zY8xKLXvCG4c', FALSE)
 ;
 
 INSERT INTO UserPreferences (

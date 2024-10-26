@@ -17,7 +17,11 @@ async fn main() {
     let _ = rocket::build()
         .mount(
             "/",
-            rocket::routes![routes::users::sample_main, routes::authorization::login,],
+            rocket::routes![
+                routes::users::sample_main,
+                routes::authorization::login,
+                routes::authorization::me,
+            ],
         )
         // creates a connection pool for the Redis database
         .attach(routes::CacheConn::init())
