@@ -32,4 +32,27 @@ mod authorization {
         // invalid password
         assert!(client.try_login("admin", "12345") == StatusCode::UNAUTHORIZED);
     }
+
+    #[test]
+    fn test_me() {
+        let mut client = TestClient::new();
+
+        client.login("admin", "admin");
+        let json = client.get("/me");
+        assert!(json["username"] == "admin");
+        assert!(json["email"] == "admin@doe.com");
+        assert!(json["is_admin"].as_bool().unwrap() == true);
+
+        client.login("jd", "password");
+        let json = client.get("/me");
+        assert!(json["username"] == "jd");
+        assert!(json["email"] == "john@doe.com");
+        assert!(json["is_admin"].as_bool().unwrap() == false);
+
+        client.login("guest", "guest");
+        let json = client.get("/me");
+        assert!(json["username"] == "guest");
+        assert!(json["email"] == "guest@doe.com");
+        assert!(json["is_admin"].as_bool().unwrap() == false);
+    }
 }
