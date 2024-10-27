@@ -1,17 +1,15 @@
 use test_env_helpers::*;
-mod utilities;
 
 #[before_all]
 #[cfg(test)]
 mod course_repository {
-    use crate::utilities::setup_test_data;
     use common::models::RoleCode;
     use common::repositories::courses::CoursesRepository;
     use common::repositories::load_async_db_connection;
     use common::repositories::users::UsersRepository;
 
     fn before_all() {
-        setup_test_data();
+        test_utilities::setup_test_data();
     }
 
     #[tokio::test]

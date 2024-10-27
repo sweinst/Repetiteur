@@ -1,16 +1,14 @@
 use test_env_helpers::*;
-pub mod utilities;
 
 #[before_all]
 #[cfg(test)]
 mod user_repository {
-    use crate::utilities::setup_test_data;
     use common::models::{NewUser, UserPreferences};
     use common::repositories::load_async_db_connection;
     use common::repositories::users::UsersRepository;
 
     fn before_all() {
-        setup_test_data();
+        test_utilities::setup_test_data();
     }
 
     #[tokio::test]

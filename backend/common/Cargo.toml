@@ -18,3 +18,4 @@ tokio = { workspace = true }
 
 [dev-dependencies]
 test-env-helpers = { workspace = true }
+test-utilities = { path = "test-utilities" }

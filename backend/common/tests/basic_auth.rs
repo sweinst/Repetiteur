@@ -1,13 +1,11 @@
 use test_env_helpers::*;
 
-mod utilities;
 #[before_all]
 #[cfg(test)]
 mod basic_authentication {
     use common::auth::{check_password, hash_password};
 
-    fn before_all() {
-    }
+    fn before_all() {}
 
     #[test]
     fn test_password_hashing() {
