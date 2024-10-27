@@ -10,9 +10,16 @@ async fn main() {
     /*
     // allow to see the environment variables
     // required: DATABASE_URL and ROCKET_DATABASES
-    for (key, value) in std::env::vars() {
-        println!("=> '{}': '{}'", key, value);
-    }
+    std::env::vars()
+        .into_iter()
+        .filter(|(key, _value)| {
+            key.starts_with("DATABASE_")
+            || key.starts_with("ROCKET_")
+            // || key.starts_with("CARGO_")
+        })
+        .for_each(|(key, value)| {
+            println!("=> '{}': '{}'", key, value);
+        });
      */
     let _ = rocket::build()
         .mount(

@@ -1,5 +1,5 @@
 use test_env_helpers::*;
-mod utilities;
+pub mod utilities;
 
 #[before_all]
 #[cfg(test)]
