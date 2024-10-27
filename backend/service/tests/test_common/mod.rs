@@ -1,4 +1,4 @@
-use reqwest::{blocking::Client, StatusCode};
+use reqwest::{blocking::Client, Method, StatusCode};
 use serde_json::{json, Value};
 use std::process::{Child, Command};
 use std::thread;
@@ -76,5 +76,35 @@ impl TestClient {
     pub fn login(&mut self, username: &str, password: &str) {
         let status = self.try_login(username, password);
         assert_eq!(status, StatusCode::OK);
+    }
+
+    pub fn request(&self, method: Method, path: &str, body: Value) -> Value {
+        let client = Client::new();
+        let response = client
+            .request(method, &format!("{}/{}", APP_HOST, path))
+            .header("Authorization", format!("Bearer {}", self.token))
+            .json(&body)
+            .send()
+            .expect("Unable to perform the request");
+        assert_eq!(response.status(), StatusCode::OK);
+        response
+            .json::<Value>()
+            .expect("Unable to parse the response")
+    }
+
+    pub fn get(&self, path: &str) -> Value {
+        self.request(Method::GET, path, json!({}))
+    }
+
+    pub fn post(&self, path: &str, body: Value) -> Value {
+        self.request(Method::POST, path, body)
+    }
+
+    pub fn put(&self, path: &str, body: Value) -> Value {
+        self.request(Method::PUT, path, body)
+    }
+
+    pub fn delete(&self, path: &str) -> Value {
+        self.request(Method::DELETE, path, json!({}))
     }
 }
