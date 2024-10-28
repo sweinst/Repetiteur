@@ -35,6 +35,7 @@ impl Service {
         println!("> Stopping the server");
         if let Some(server) = self.process.as_mut() {
             server.kill().expect("Unable to kill the server");
+            server.wait().expect("Unable to wait for the server");
         }
         println!("> Done");
     }
