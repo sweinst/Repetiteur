@@ -41,6 +41,12 @@ impl Service {
     }
 }
 
+impl Drop for Service {
+    fn drop(&mut self) {
+        self.stop();
+    }
+}
+
 pub struct TestClient {
     token: String,
 }

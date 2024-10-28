@@ -2,23 +2,25 @@ mod test_common;
 use test_env_helpers::*;
 
 #[before_all]
-#[after_all]
+//#[after_all]
 #[cfg(test)]
 mod authorization {
     use crate::test_common::{Service, TestClient};
     use reqwest::StatusCode;
-    use std::sync::{LazyLock, Mutex};
+    use static_init::dynamic;
 
-    pub static SERVICE: LazyLock<Mutex<Service>> = LazyLock::new(|| Mutex::new(Service::new()));
+    // TODO: find a solution for shutting down the server after all tests
+    #[dynamic(lazy, drop)]
+    static mut SERVICE: Service = Service::new();
 
     fn before_all() {
-        SERVICE.lock().unwrap().start();
+        SERVICE.write().start();
     }
 
-    fn after_all() {
-        SERVICE.lock().unwrap().stop();
-    }
-
+    /*     fn after_all() {
+           SERVICE.lock().unwrap().stop();
+       }
+    */
     #[test]
     fn test_login() {
         let mut client = TestClient::new();
