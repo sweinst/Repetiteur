@@ -20,7 +20,7 @@ pub async fn login(
             return Custom(Status::Unauthorized, json!("Wrong credentials"));
         })?;
 
-    let session_id = authorize_user(&user, credentials.into_inner())
+    let session_id = authorize_user(&user, &credentials)
         .map_err(|_| Custom(Status::Unauthorized, json!("Wrong credentials")))?;
     // cache it in Redis
     // TODO: set the value with JSON format
@@ -35,6 +35,7 @@ pub async fn login(
         )
         .await
         .map_err(|e| server_error(e.into()))?;
+    rocket::info!("User '{}' logged in", credentials.username);
     Ok(json!({
         "token": session_id,
     }))

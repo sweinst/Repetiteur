@@ -97,14 +97,20 @@ impl TestClient {
         self.request(Method::GET, path, json!({}))
     }
 
+    // TODO: remove the #[allow(dead_code)] attribute
+    #[allow(dead_code)]
     pub fn post(&self, path: &str, body: Value) -> Value {
         self.request(Method::POST, path, body)
     }
 
+    // TODO: remove the #[allow(dead_code)] attribute
+    #[allow(dead_code)]
     pub fn put(&self, path: &str, body: Value) -> Value {
         self.request(Method::PUT, path, body)
     }
 
+    // TODO: remove the #[allow(dead_code)] attribute
+    #[allow(dead_code)]
     pub fn delete(&self, path: &str) -> Value {
         self.request(Method::DELETE, path, json!({}))
     }

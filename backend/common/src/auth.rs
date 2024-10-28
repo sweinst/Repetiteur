@@ -30,7 +30,7 @@ pub fn check_password(password: &String, hash: &String) -> Result<bool, Error> {
 }
 
 /// Checks the user password and returns a session id
-pub fn authorize_user(user: &User, credentials: Credentials) -> Result<String, Error> {
+pub fn authorize_user(user: &User, credentials: &Credentials) -> Result<String, Error> {
     check_password(&credentials.password, &user.password)?;
     let session_id = rand::thread_rng()
         .sample_iter(&Alphanumeric)

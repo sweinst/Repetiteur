@@ -33,7 +33,7 @@ impl CoursesRepository {
             .await
     }
     /// Finds a course by its name
-    pub async fn find_by_name(c: &mut AsyncPgConnection, name: &String) -> QueryResult<Course> {
+    pub async fn find_by_name(c: &mut AsyncPgConnection, name: &str) -> QueryResult<Course> {
         courses::table
             .filter(courses::name.eq(name))
             .get_result(c)
