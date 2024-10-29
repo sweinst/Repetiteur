@@ -5,32 +5,21 @@ use test_env_helpers::*;
 //#[after_all]
 #[cfg(test)]
 mod authorization {
-    use crate::test_common::{Service, TestClient};
+    use crate::test_common::{start_service, TestClient};
     use reqwest::StatusCode;
-    use static_init::dynamic;
-
-    // TODO: find a solution for shutting down the server after all tests
-    #[dynamic(lazy, drop)]
-    static mut SERVICE: Service = Service::new();
 
     fn before_all() {
-        SERVICE.write().start();
+        start_service();
     }
 
-    /*     fn after_all() {
-           SERVICE.lock().unwrap().stop();
-       }
-    */
     #[test]
     fn test_login() {
         let mut client = TestClient::new();
 
         // valid user & password
         client.login("admin", "admin");
-
         // invalid user
         assert!(client.try_login("foo", "12345") == StatusCode::UNAUTHORIZED);
-
         // invalid password
         assert!(client.try_login("admin", "12345") == StatusCode::UNAUTHORIZED);
     }

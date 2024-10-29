@@ -1,10 +1,13 @@
+use libc::atexit;
 use reqwest::{blocking::Client, Method, StatusCode};
 use serde_json::{json, Value};
 use std::process::{Child, Command};
+use std::sync::Mutex;
 use std::thread;
 
 pub static APP_HOST: &'static str = "http://127.0.0.1:8000";
-pub struct Service {
+
+struct Service {
     process: Option<Child>,
 }
 
@@ -15,9 +18,21 @@ impl Service {
 
     pub fn start(&mut self) {
         if self.process.is_none() {
-            println!("> re-initializing the DB");
+            let mut path = std::env::current_exe().unwrap();
+            assert!(path.pop());
+            if path.ends_with("deps") {
+                assert!(path.pop());
+            }
+            path.push(format!(
+                "{}{}",
+                env!("CARGO_PKG_NAME"),
+                std::env::consts::EXE_SUFFIX
+            ));
+
+            eprintln!("> re-initializing the DB");
             test_utilities::setup_test_data();
-            println!("> Launching the server");
+            eprintln!("> Launching the server");
+            //Command::new(path)
             Command::new("cargo")
                 .args(["run", "--bin", "service"])
                 .spawn()
@@ -25,25 +40,35 @@ impl Service {
                     self.process = Some(child);
                 })
                 .expect("Unable to start the server");
-            println!("> Waiting for the server");
-            thread::sleep(std::time::Duration::from_secs(10));
-            println!("> Done");
+            eprintln!("> Waiting for the server");
+            thread::sleep(std::time::Duration::from_secs(20));
+            eprintln!("> Done");
         }
     }
 
     pub fn stop(&mut self) {
-        println!("> Stopping the server");
+        eprintln!("> Stopping the server");
         if let Some(server) = self.process.as_mut() {
             server.kill().expect("Unable to kill the server");
             server.wait().expect("Unable to wait for the server");
         }
-        println!("> Done");
+        eprintln!("> Done");
     }
 }
 
-impl Drop for Service {
-    fn drop(&mut self) {
-        self.stop();
+/// This function ensures that the service is started only once
+/// and shut down when the program exits.
+pub fn start_service() {
+    static SERVICE: Mutex<Option<Service>> = Mutex::new(None);
+    if SERVICE.lock().unwrap().is_none() {
+        let mut service = Service::new();
+        service.start();
+        *SERVICE.lock().unwrap() = Some(service);
+
+        extern "C" fn kill() {
+            SERVICE.lock().unwrap().as_mut().unwrap().stop();
+        }
+        unsafe { atexit(kill) };
     }
 }
 
