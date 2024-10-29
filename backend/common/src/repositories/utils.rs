@@ -8,7 +8,7 @@ pub fn run_sql_script(path: String, conn: &mut PgConnection) -> Result<(), Box<d
     if path.is_relative() {
         path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join(path);
     }
-    println!("> Running SQL script: {:?}", path);
+    eprintln!("> Running SQL script: {:?}", path);
     let sql = std::fs::read_to_string(path.clone())?;
     conn.batch_execute(sql.as_str())
         .expect(format!("Unable to run the SQL script: {:?}", path).as_str());

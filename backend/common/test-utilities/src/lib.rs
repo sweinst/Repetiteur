@@ -11,5 +11,5 @@ pub fn setup_test_data() {
     let _ = conn
         .batch_execute(sql)
         .expect("Unable to load the test data in the DB");
-    println!("> Test data loaded successfully");
+    eprintln!("> Test data loaded successfully");
 }

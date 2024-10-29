@@ -18,7 +18,7 @@ async fn main() {
             // || key.starts_with("CARGO_")
         })
         .for_each(|(key, value)| {
-            println!("=> '{}': '{}'", key, value);
+            eprintln!("=> '{}': '{}'", key, value);
         });
      */
     let _ = rocket::build()
