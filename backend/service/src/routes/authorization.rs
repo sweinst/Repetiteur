@@ -42,7 +42,7 @@ pub async fn login(
         )
         .await
         .map_err(|e| server_error(e.into()))?;
-    rocket::info!("User '{}' logged in", credentials.username);
+    rocket::info!("User '{}' logged in (session will expire at: {})", credentials.username, expiration);
     Ok(json!({
         "token": session_id,
         "expiration": expiration.to_string(),
