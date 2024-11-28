@@ -1,10 +1,11 @@
+use common::json_config::JsonConfig;
 use common::models::User;
 use common::repositories::users::UsersRepository;
 use rocket::http::Status;
-use rocket::request::{FromRequest, Outcome};
+use rocket::request::{self, FromRequest, Outcome};
 use rocket::response::status::Custom;
 use rocket::serde::json::{json, Value};
-use rocket::Request;
+use rocket::{Request, State};
 use rocket_db_pools::deadpool_redis::redis::AsyncCommands;
 use rocket_db_pools::Connection;
 use std::error::Error;
@@ -69,5 +70,20 @@ impl<'r> FromRequest<'r> for RocketUser {
 
         rocket::error!("Invalid or missing session ID");
         Outcome::Error((Status::Unauthorized, ()))
+    }
+}
+
+#[derive(Clone)]
+pub struct AppConfig {
+    pub config: JsonConfig,
+}
+
+#[rocket::async_trait]
+impl<'r> FromRequest<'r> for AppConfig {
+    type Error = ();
+
+    async fn from_request(request: &'r Request<'_>) -> request::Outcome<AppConfig, ()> {
+        let config = request.guard::<&State<AppConfig>>().await.unwrap();
+        Outcome::Success(config.inner().clone())
     }
 }

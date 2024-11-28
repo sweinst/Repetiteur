@@ -1,11 +1,10 @@
+use dotenvy::dotenv;
 use libc::atexit;
 use reqwest::{blocking::Client, Method, StatusCode};
 use serde_json::{json, Value};
 use std::process::{Child, Command};
 use std::sync::Mutex;
 use std::thread;
-
-pub static APP_HOST: &'static str = "http://127.0.0.1:8000";
 
 struct Service {
     process: Option<Child>,
@@ -74,19 +73,24 @@ pub fn start_service() {
 
 pub struct TestClient {
     token: String,
+    url: String,
 }
 
 impl TestClient {
     pub fn new() -> Self {
+        dotenv().ok();
+        let port = std::env::var("ROCKET_ADDRESS").unwrap_or("8000".to_string());
+        let url = format!("http://localhost:{}", port);
         Self {
             token: String::new(),
+            url: url,
         }
     }
 
     pub fn try_login(&mut self, username: &str, password: &str) -> StatusCode {
         let client = Client::new();
         let response = client
-            .post(&format!("{}/login", APP_HOST))
+            .post(&format!("{}/login", self.url))
             .json(&json!({
                 "username": username,
                 "password": password,
@@ -113,7 +117,7 @@ impl TestClient {
     pub fn request(&self, method: Method, path: &str, body: Value) -> Value {
         let client = Client::new();
         let response = client
-            .request(method, &format!("{}/{}", APP_HOST, path))
+            .request(method, &format!("{}/{}", self.url, path))
             .header("Authorization", format!("Bearer {}", self.token))
             .json(&body)
             .send()

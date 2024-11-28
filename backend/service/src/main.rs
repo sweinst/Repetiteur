@@ -1,27 +1,39 @@
+use std::path::Path;
+use common::json_config::JsonConfig;
 use dotenvy::dotenv;
 use rocket_db_pools::Database;
+use routes::AppConfig;
 
 pub mod routes;
+
+fn show_config(config: &JsonConfig) {
+    // allow to see the environment variables
+    // required: DATABASE_URL (diesel) and ROCKET_DATABASES (rocket)
+    if config.get_bool("show_env", false) {
+        std::env::vars()
+        .into_iter()
+        .for_each(|(key, value)| {
+            rocket::info!(" '{}' => '{}'", key, value);
+        });
+    }
+}
 
 #[rocket::main]
 async fn main() {
     // allow to read extra environment variables from a .env file
     dotenv().ok();
-    /*
-    // allow to see the environment variables
-    // required: DATABASE_URL and ROCKET_DATABASES
-    std::env::vars()
-        .into_iter()
-        .filter(|(key, _value)| {
-            key.starts_with("DATABASE_")
-            || key.starts_with("ROCKET_")
-            // || key.starts_with("CARGO_")
-        })
-        .for_each(|(key, value)| {
-            eprintln!("=> '{}': '{}'", key, value);
-        });
-     */
+    // read the config file
+    let config = 
+        JsonConfig::from_file(Path::new("config.json"))
+        .map_err(|err| panic!("Unable to read the config file 'config.json': {}", err))
+        .unwrap();
+    // dump the environment variables if required
+    show_config(&config);
+
     let _ = rocket::build()
+        // shared config
+        .manage(AppConfig { config })
+        // routes
         .mount(
             "/",
             rocket::routes![
