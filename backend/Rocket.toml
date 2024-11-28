@@ -6,7 +6,8 @@ postgres = {url = "postgres://postgres:postgres@localhost/repetiteur"}
 redis = {url = "redis://localhost:6379"}
 
 [debug]
-log_level = "debug"
+# log_level = "debug"
+log_level = "normal"
 
 [release]
 log_level = "normal"

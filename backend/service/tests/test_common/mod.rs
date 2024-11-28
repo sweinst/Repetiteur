@@ -5,6 +5,7 @@ use serde_json::{json, Value};
 use std::process::{Child, Command};
 use std::sync::Mutex;
 use std::thread;
+use std::path::PathBuf;
 
 struct Service {
     process: Option<Child>,
@@ -12,27 +13,31 @@ struct Service {
 
 impl Service {
     pub fn new() -> Self {
-        Self { process: None }
+        Self { 
+            process: None,
+        }
     }
 
     pub fn start(&mut self) {
         if self.process.is_none() {
-            let mut path = std::env::current_exe().unwrap();
-            assert!(path.pop());
-            if path.ends_with("deps") {
-                assert!(path.pop());
+            let mut exe_path = std::env::current_exe().unwrap();
+            assert!(exe_path.pop());
+            if exe_path.ends_with("deps") {
+                assert!(exe_path.pop());
             }
-            path.push(format!(
-                "{}{}",
-                env!("CARGO_PKG_NAME"),
-                std::env::consts::EXE_SUFFIX
-            ));
+            let mut configs_path = PathBuf::from(std::env::var("CARGO_MANIFEST_DIR").unwrap());
+            configs_path.pop();   
+
+            std::env::vars().into_iter().for_each(|(key, value)| {
+                eprintln!("{}: {}", key, value);
+            });
 
             eprintln!("> re-initializing the DB");
             test_utilities::setup_test_data();
             eprintln!("> Launching the server");
             //Command::new(path)
             Command::new("cargo")
+                .current_dir(configs_path)
                 .args(["run", "--bin", "service"])
                 .spawn()
                 .map(|child| {
@@ -79,7 +84,7 @@ pub struct TestClient {
 impl TestClient {
     pub fn new() -> Self {
         dotenv().ok();
-        let port = std::env::var("ROCKET_ADDRESS").unwrap_or("8000".to_string());
+        let port = std::env::var("TEST_ROCKET_PORT").unwrap_or("8000".to_string());
         let url = format!("http://localhost:{}", port);
         Self {
             token: String::new(),
