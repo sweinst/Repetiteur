@@ -24,8 +24,11 @@ mod json_config {
         assert_eq!(config.get_i64("string", -4), -4);
         assert_eq!(config.get_u64("unsigned", 0), 2);
         assert_eq!(config.get_u64("int", 0), 0);
+        assert_eq!(config.get_u64("unavailable", 4), 4);
         assert_eq!(config.get_f64("float", 0.0), 3.1416);
         assert_eq!(config.get_f64("int", 0.0), -2.0);
+        assert_eq!(config.get_f64("unavailable", -4.0), -4.0);
         assert_eq!(config.get_bool("bool", false), true);
+        assert_eq!(config.get_bool("unavailable", true), true);
     }
 }
