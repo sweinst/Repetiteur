@@ -84,8 +84,7 @@ pub struct TestClient {
 impl TestClient {
     pub fn new() -> Self {
         dotenv().ok();
-        let port = std::env::var("TEST_ROCKET_PORT").unwrap_or("8000".to_string());
-        let url = format!("http://localhost:{}", port);
+        let url = std::env::var("TEST_ROCKET_SERVER").unwrap_or("http://localhost:8000".to_string());
         Self {
             token: String::new(),
             url: url,
