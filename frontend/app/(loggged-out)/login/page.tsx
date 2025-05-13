@@ -33,7 +33,7 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="flex flex-col h-screen w-screen items-center justify-center bg-background">
+        <>
             <Image src={logo} width={375} alt="Répétiteur" />
             <Card className="w-full max-w-sm">
                 <CardHeader>
@@ -91,6 +91,6 @@ export default function LoginPage() {
                     </Button>
                 </CardFooter>
             </Card>
-        </div>
+        </>
     );
 }
